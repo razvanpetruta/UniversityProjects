@@ -1,0 +1,12 @@
+;mov eax, 0
+;xor eax, eax
+;and eax, 0
+;shr eax, 32
+;shl eax, 32
+;sal eax, 32
+;lea eax, [0]
+;sub eax, eax
+;mov eax, !1
+;mov eax, ~(-1)
+;mov eax, 1^1
+;mov eax, 7&(~7)  

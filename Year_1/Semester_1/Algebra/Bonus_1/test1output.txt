@@ -1,0 +1,4 @@
+The number of partitions of a set with 1 elements is: 1
+
+The partitions of the set and their corresponding equivalence relations are: 
+{{a1}} -> {(a1, a1)}

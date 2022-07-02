@@ -1,0 +1,5 @@
+1,Mind,Sorana
+2,The Bitcoin,Bill Gates
+4,Free life,Everyone
+3,It is what it is,No one
+5,Test,John Wick
