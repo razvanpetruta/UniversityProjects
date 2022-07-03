@@ -1,0 +1,5 @@
+1|Labrador Retriever|John Cena|10|https://www.taramulanimalelor.com/wp-content/uploads/2020/10/Labrador-caracteristici-rasa-caine.
+3|German Shepher|Max|7|https://www.hospitalveterinariglories.com/wp-content/uploads/2021/08/04-08-21-Conoce-al-pastor-alema%CC%81n.
+8|Rottweiler|Ace|1|https://www.animalepierdute.ro/wp-content/uploads/2019/09/Rottweiler.
+9|Dachshund|Coco|2|https://media-be.chewy.com/wp-content/uploads/2021/12/22164927/Dachshund-FeaturedImage.
+10|German Shorthaired Pointer|Buddy|11|https://rasedecaini.ro/wp-content/uploads/2019/05/rasa-German-Shorthaired-Pointer.

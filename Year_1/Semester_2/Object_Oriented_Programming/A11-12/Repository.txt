@@ -1,0 +1,3 @@
+2|French Bulldog|Charlie|20|https://www.akc.org/wp-content/uploads/2017/11/French-Bulldog-standing-outdoors.
+6|Poodle|Zeus|2|https://a-z-animals.com/media/Poodle-Canis-familiaris-white.
+7|Beagle|Henry|7|https://www.zooplus.ro/ghid/wp-content/uploads/2021/07/caine-beagle.j

@@ -1,0 +1,7 @@
+1;1;Good Question;Bogdan;3
+2;2;I don't know;Adrian;6
+3;3;Hmm...;Dragos;6
+4;3;Let's say so;Adrian;5
+5;4;Of course, brother;Dragos;5
+6;3;Of course;Adrian;0
+7;3;Maybe;Bogdan;1
