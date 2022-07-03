@@ -55,4 +55,4 @@ public:
 ```
 
 #### Application Preview
-   ![Application Running](https://github.com/razvanpetruta/UniversityProjects/tree/main/Year_1/Semester_2/Object_Oriented_Programming/QuestionsAndAnswers-ObserverPattern/application_running.png?raw=true)
+   ![Application Running](./application_running.png)
