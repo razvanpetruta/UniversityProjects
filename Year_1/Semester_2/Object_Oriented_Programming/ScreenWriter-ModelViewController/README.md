@@ -12,7 +12,7 @@
  
 
 #### Model View Controller Architecture 
-   ![MVC](https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/MVC-Process.svg/800px-MVC-Process.svg.png)
+   ![MVC](https://media.geeksforgeeks.org/wp-content/uploads/MVC-Design-Pattern.png)
 
 #### Application Preview
    ![application sample](./application_running.png)
