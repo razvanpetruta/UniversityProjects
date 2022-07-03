@@ -1,0 +1,6 @@
+Kill Johny;approved;Bogdan;1
+Play Valorant;proposed;Razvan;1
+Learn GameDev;approved;Bogdan;1
+Go hiking;proposed;Dragos;2
+Visit the country;proposed;Dragos;2
+Something;proposed;Dragos;3
