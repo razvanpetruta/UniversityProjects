@@ -54,5 +54,5 @@ public:
 };
 ```
 
-#### Observer Pattern
-   ![Application Running](https://github.com/razvanpetruta/UniversityProjects/tree/main/Year_1/Semester_2/Object_Oriented_Programming/QuestionsAndAnswers-ObserverPattern/application_running.png)
+#### Application Preview
+   ![Application Running](https://github.com/razvanpetruta/UniversityProjects/tree/main/Year_1/Semester_2/Object_Oriented_Programming/QuestionsAndAnswers-ObserverPattern/application_running.png?raw=true)
