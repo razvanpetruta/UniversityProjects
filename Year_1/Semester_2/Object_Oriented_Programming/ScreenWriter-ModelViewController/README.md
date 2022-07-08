@@ -7,8 +7,7 @@
  - any writer can add a new idea
  - senior writers can revise ideas and accept them
  - when a modification is made by the user, all the other users will see the modification in the list of ideas
- - each writer can develop its ideas and save them to an associated file
-
+ - each writer can develop its ideas and save them to an associated fil
  
 
 #### Model View Controller Architecture 
