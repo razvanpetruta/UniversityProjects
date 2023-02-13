@@ -1,0 +1,307 @@
+Program #1
+Execution stack: 
+(RefType(int) v, (new(v, 20), (RefType(RefType(int)) a, (new(a, v), (print(v), print(a))))))
+Symbol table: 
+Output list: 
+File table: 
+Heap memory: 
+Lock table: 
+Semaphore table: 
+Latch table: 
+
+Program #1
+Execution stack: 
+RefType(int) v
+(new(v, 20), (RefType(RefType(int)) a, (new(a, v), (print(v), print(a)))))
+Symbol table: 
+Output list: 
+File table: 
+Heap memory: 
+Lock table: 
+Semaphore table: 
+Latch table: 
+
+Program #1
+Execution stack: 
+RefType(int) v
+(new(v, 20), (RefType(RefType(int)) a, (new(a, v), (print(v), print(a)))))
+Symbol table: 
+Output list: 
+File table: 
+Heap memory: 
+Lock table: 
+Semaphore table: 
+Latch table: 
+
+Program #1
+Execution stack: 
+(new(v, 20), (RefType(RefType(int)) a, (new(a, v), (print(v), print(a)))))
+Symbol table: 
+v -> RefValue(0, int)
+Output list: 
+File table: 
+Heap memory: 
+Lock table: 
+Semaphore table: 
+Latch table: 
+
+Program #1
+Execution stack: 
+(new(v, 20), (RefType(RefType(int)) a, (new(a, v), (print(v), print(a)))))
+Symbol table: 
+v -> RefValue(0, int)
+Output list: 
+File table: 
+Heap memory: 
+Lock table: 
+Semaphore table: 
+Latch table: 
+
+Program #1
+Execution stack: 
+new(v, 20)
+(RefType(RefType(int)) a, (new(a, v), (print(v), print(a))))
+Symbol table: 
+v -> RefValue(0, int)
+Output list: 
+File table: 
+Heap memory: 
+Lock table: 
+Semaphore table: 
+Latch table: 
+
+Program #1
+Execution stack: 
+new(v, 20)
+(RefType(RefType(int)) a, (new(a, v), (print(v), print(a))))
+Symbol table: 
+v -> RefValue(0, int)
+Output list: 
+File table: 
+Heap memory: 
+Lock table: 
+Semaphore table: 
+Latch table: 
+
+Program #1
+Execution stack: 
+(RefType(RefType(int)) a, (new(a, v), (print(v), print(a))))
+Symbol table: 
+v -> RefValue(1, int)
+Output list: 
+File table: 
+Heap memory: 
+1 -> 20
+Lock table: 
+Semaphore table: 
+Latch table: 
+
+Program #1
+Execution stack: 
+(RefType(RefType(int)) a, (new(a, v), (print(v), print(a))))
+Symbol table: 
+v -> RefValue(1, int)
+Output list: 
+File table: 
+Heap memory: 
+1 -> 20
+Lock table: 
+Semaphore table: 
+Latch table: 
+
+Program #1
+Execution stack: 
+RefType(RefType(int)) a
+(new(a, v), (print(v), print(a)))
+Symbol table: 
+v -> RefValue(1, int)
+Output list: 
+File table: 
+Heap memory: 
+1 -> 20
+Lock table: 
+Semaphore table: 
+Latch table: 
+
+Program #1
+Execution stack: 
+RefType(RefType(int)) a
+(new(a, v), (print(v), print(a)))
+Symbol table: 
+v -> RefValue(1, int)
+Output list: 
+File table: 
+Heap memory: 
+1 -> 20
+Lock table: 
+Semaphore table: 
+Latch table: 
+
+Program #1
+Execution stack: 
+(new(a, v), (print(v), print(a)))
+Symbol table: 
+a -> RefValue(0, RefType(int))
+v -> RefValue(1, int)
+Output list: 
+File table: 
+Heap memory: 
+1 -> 20
+Lock table: 
+Semaphore table: 
+Latch table: 
+
+Program #1
+Execution stack: 
+(new(a, v), (print(v), print(a)))
+Symbol table: 
+a -> RefValue(0, RefType(int))
+v -> RefValue(1, int)
+Output list: 
+File table: 
+Heap memory: 
+1 -> 20
+Lock table: 
+Semaphore table: 
+Latch table: 
+
+Program #1
+Execution stack: 
+new(a, v)
+(print(v), print(a))
+Symbol table: 
+a -> RefValue(0, RefType(int))
+v -> RefValue(1, int)
+Output list: 
+File table: 
+Heap memory: 
+1 -> 20
+Lock table: 
+Semaphore table: 
+Latch table: 
+
+Program #1
+Execution stack: 
+new(a, v)
+(print(v), print(a))
+Symbol table: 
+a -> RefValue(0, RefType(int))
+v -> RefValue(1, int)
+Output list: 
+File table: 
+Heap memory: 
+1 -> 20
+Lock table: 
+Semaphore table: 
+Latch table: 
+
+Program #1
+Execution stack: 
+(print(v), print(a))
+Symbol table: 
+a -> RefValue(2, RefType(int))
+v -> RefValue(1, int)
+Output list: 
+File table: 
+Heap memory: 
+1 -> 20
+2 -> RefValue(1, int)
+Lock table: 
+Semaphore table: 
+Latch table: 
+
+Program #1
+Execution stack: 
+(print(v), print(a))
+Symbol table: 
+a -> RefValue(2, RefType(int))
+v -> RefValue(1, int)
+Output list: 
+File table: 
+Heap memory: 
+1 -> 20
+2 -> RefValue(1, int)
+Lock table: 
+Semaphore table: 
+Latch table: 
+
+Program #1
+Execution stack: 
+print(v)
+print(a)
+Symbol table: 
+a -> RefValue(2, RefType(int))
+v -> RefValue(1, int)
+Output list: 
+File table: 
+Heap memory: 
+1 -> 20
+2 -> RefValue(1, int)
+Lock table: 
+Semaphore table: 
+Latch table: 
+
+Program #1
+Execution stack: 
+print(v)
+print(a)
+Symbol table: 
+a -> RefValue(2, RefType(int))
+v -> RefValue(1, int)
+Output list: 
+File table: 
+Heap memory: 
+1 -> 20
+2 -> RefValue(1, int)
+Lock table: 
+Semaphore table: 
+Latch table: 
+
+Program #1
+Execution stack: 
+print(a)
+Symbol table: 
+a -> RefValue(2, RefType(int))
+v -> RefValue(1, int)
+Output list: 
+RefValue(1, int)
+File table: 
+Heap memory: 
+1 -> 20
+2 -> RefValue(1, int)
+Lock table: 
+Semaphore table: 
+Latch table: 
+
+Program #1
+Execution stack: 
+print(a)
+Symbol table: 
+a -> RefValue(2, RefType(int))
+v -> RefValue(1, int)
+Output list: 
+RefValue(1, int)
+File table: 
+Heap memory: 
+1 -> 20
+2 -> RefValue(1, int)
+Lock table: 
+Semaphore table: 
+Latch table: 
+
+Program #1
+Execution stack: 
+Symbol table: 
+a -> RefValue(2, RefType(int))
+v -> RefValue(1, int)
+Output list: 
+RefValue(1, int)
+RefValue(2, RefType(int))
+File table: 
+Heap memory: 
+1 -> 20
+2 -> RefValue(1, int)
+Lock table: 
+Semaphore table: 
+Latch table: 
+
