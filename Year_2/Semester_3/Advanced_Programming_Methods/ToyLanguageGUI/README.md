@@ -11,7 +11,7 @@ The toy language is a simplified programming language designed for educational p
 - Concurrency and multithreading concepts
 
 ## Demo
-![App Preview](link)
+![App Preview](https://github.com/razvanpetruta/UniversityProjects/blob/main/Year_2/Semester_3/Advanced_Programming_Methods/ToyLanguageGUI/Preview.gif)
 
 ## Types
 
@@ -325,4 +325,4 @@ The toy language is a simplified programming language designed for educational p
 - LatchTable: a table which maps the latch variable with the count number
 - SemaphoreTable: a table witch maps the semaphore variable with the maximum number of threads that can acquire the semaphore and the list of thread IDs
 ## UML Diagram
-[see diagram](link)
+[see diagram](https://github.com/razvanpetruta/UniversityProjects/blob/main/Year_2/Semester_3/Advanced_Programming_Methods/ToyLanguageGUI/UMLDiagram.png)
