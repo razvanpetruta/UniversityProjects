@@ -1,0 +1,2 @@
+The client sends to the server a string and 2 integers.
+The server returns to the client the substring of s delimited by the 2 integers.

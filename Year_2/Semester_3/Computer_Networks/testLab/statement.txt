@@ -1,0 +1,3 @@
+The client reads an array of characters and send it to the server.
+The server receives the array and concatenates the characters into a sentence and sends it to the user.
+The server should be able to handle multiple users at the same time (concurrent).
