@@ -1,0 +1,361 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.body {
+    max-width: 80%;
+    position: relative;
+    font-family: 'Roboto', sans-serif;
+}
+
+a, button {
+    cursor: pointer;
+}
+
+#main {
+    background-color: #2b5b84;
+}
+
+.top-bar {
+    background-color: #273643;
+}
+
+.container {
+    max-width: 80%;
+    margin: auto;
+}
+
+.menu, .logo-and-search, .form-search {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+}
+
+.logo-and-search {
+    margin: 1rem 0;
+}
+
+.menu-1 li {
+    cursor: pointer;
+    display: inline-block;
+    transition: background-color 0.4s ease;
+    background-color: #273643;
+    width: 16.666667%;
+    text-align: center;
+    border: solid 1px black;
+    padding: 0.5rem;
+    font-family: 'Roboto', sans-serif;
+}
+
+.menu-1 li a {
+    color: #999;
+    text-decoration: none;
+}
+
+.menu-1 li:hover {
+    background-color: #172128 !important;
+}
+
+.active-menu-1 a {
+    color: white !important;
+}
+
+.li-python {
+    border-top: solid 2px #3776ab !important;
+}
+
+.li-psf {
+    border-top: solid 2px #999 !important;
+}
+
+.li-docs {
+    border-top: solid 2px #ffd343 !important;
+}
+
+.li-pypi {
+    border-top: solid 2px #82b043 !important;
+}
+
+.li-jobs {
+    border-top: solid 2px #a06ba7 !important;
+}
+
+.li-community {
+    border-top: solid 2px #b55863 !important;
+}
+
+.python-logo {
+    width: 290px;
+    height: 82px;
+}
+
+.left, .right {
+    min-width: 50%;
+}
+
+.right {
+    margin: auto;
+}
+
+.donate-button {
+    background-color: #ffd343;
+    padding: 5px 7px;
+    height: 20px;
+    border: solid 1px #dca900;
+    border-radius: 6px;
+    margin: auto 10px;
+}
+
+.options {
+    background-color: #1e2933;
+    padding: 10px 15px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    border-radius: 6px;
+}
+
+.right {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: right;
+}
+
+.fa-magnifying-glass {
+    color: #999;
+    margin-right: 5px;
+    padding: 10px;
+}
+
+.search-field {
+    padding: 8px 2px;
+}
+
+.search-button {
+    background-color: #2b5b84;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    margin-left: 5px;
+}
+
+.socialize {
+    margin: auto 15px;
+    color: #999;
+}
+
+.bottom-bar {
+    position: relative;
+}
+
+.menu-2 {
+    margin: auto;
+    width: 75%;
+    background-color: #3776ab;
+    padding: 0 8rem;
+    border-radius: 8px;
+}
+
+.menu-2 li {
+    display: inline-block;
+    cursor: pointer;
+    background-color: #3776ab;
+    transition: background-color 0.4s ease;
+    text-align: center;
+    border-right: solid 1px gray;
+    padding: 1rem 1.2rem;
+    font-family: SourceSansProRegular, Arial, sans-serif;
+}
+
+.menu-2 li:hover {
+    background-color: #285a80;
+}
+
+.menu-2 li a {
+    color: white;
+    text-decoration: none;
+    padding-top: 30%;
+}
+
+.code-and-description {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    max-width: 80%;
+    margin: auto;
+    background-color: #264259;
+}
+
+code {
+    color: #11a611;
+    font-size: 0.9rem;
+    font-family: Consolas, 'Lucida Console', 'Liberation Mono', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', 'Courier New', monospace, sans-serif;
+}
+
+.code-example {
+    width: 50%;
+    background-color: #1e2933;
+    padding: 1.4rem;
+    position: relative;
+}
+
+.python-description {
+    width: 50%;
+    padding: 1rem 1.5rem;
+    position: relative;
+}
+
+.comment {
+    color: #666;
+}
+
+.output {
+    color: white;
+}
+
+.python-header {
+    color: #ffd343;
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+    font-family: SourceSansProBold, Arial, sans-serif;
+}
+
+.python-paragraph {
+    color: white;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 0.8em;
+    line-height: 200%;
+}
+
+.python-paragraph a {
+    color: #ffd343;
+}
+
+.numbers-nav {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    position: absolute;
+    bottom: 0;
+    left: 27%;
+    width: 50%;
+    margin: 1rem auto;
+}
+
+.numbers-nav li {
+    cursor: pointer;
+    list-style-type: none;
+    background-color: #3776ab;
+    transition: background-color 0.4s ease, color 0.4s ease;
+    margin: 5px;
+    padding: 3px 10px;
+    border-radius: 4px;
+    color: #999;
+}
+
+.numbers-nav li:hover {
+    background-color: #25547c;
+    color: white;
+}
+
+.active-number {
+    background-color: #3f79a9;
+    color: #ffd343;
+}
+
+.run-button {
+    text-decoration: none;
+    background-color: #ffd343;
+    padding: 10px;
+    border-radius: 5px;
+    font-weight: bold;
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 1rem;
+}
+
+.introduction {
+    text-align: center;
+    font-size: 1.4em;
+    color: #caccce;
+    line-height: 2rem;
+    margin: 1rem;
+    padding-bottom: 1rem;
+}
+
+.read-more {
+    color: #ffd343;
+}
+
+.read-more:before {
+    content: ">>>";
+    margin-right: 0.25em;
+    font-family: Flux-Regular, SourceSansProRegular, Arial, sans-serif;
+    font-size: 120%;
+    letter-spacing: -0.2rem;
+}
+
+.row {
+    width: 80%;
+    margin: 2rem auto;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+}
+
+.small-widget {
+    border-top: 4px solid #75a8d3;
+    margin: 0 1rem;
+    width: 25%;
+    padding: 1rem;
+    font-size: 0.9375em;
+}
+
+.small-widget p {
+    margin-bottom: 1rem;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 0.8rem;
+    line-height: 2;
+}
+
+.small-widget p a {
+    color: #3776ab;
+    text-decoration: none;
+}
+
+.widget-title {
+    font-size: 1.50938em;
+    font-family: 'Quicksand', sans-serif;
+    font-weight: normal;
+    color: #444;
+    margin: 0.7rem 0;
+}
+
+.fa-solid {
+    padding-right: 6px;
+    color: #2b5b84;
+}
+
+@media only screen and (max-width: 720px) {
+    .menu {
+        flex-wrap: wrap;
+    }
+
+    .right, .logo-and-search, .left {
+        display: block;
+    }
+}

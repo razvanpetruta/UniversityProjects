@@ -1,0 +1,18 @@
+.container-custom {
+    max-width: 80%;
+    margin-top: 2rem;
+}
+
+.select-custom {
+    margin: 3rem 0rem;
+}
+
+h3, h5 {
+   text-align: center;
+}
+
+a {
+    cursor: pointer;
+    color: blue !important;
+    text-decoration: underline !important;
+}

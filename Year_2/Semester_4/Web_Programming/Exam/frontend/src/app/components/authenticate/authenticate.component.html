@@ -1,0 +1,24 @@
+
+<div class="form-signin text-center full-center">
+    <form autocomplete="off" name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm"
+        novalidate>
+        <div class="auth">
+            <h3 class="m-3">Please log in</h3>
+
+            <div class="form-floating">
+                <input type="text" class="form-control" id="floatingInput" name="name" placeholder="Username"
+                    [(ngModel)]="name" required>
+                <label for="floatingInput">Player Name</label>
+            </div>
+
+            <div class="form-group">
+                <div *ngIf="f.submitted && isLoginFailed" class="alert alert-danger" role="alert">
+                    Login failed: {{ errorMessage }}
+                </div>
+            </div>
+        </div>
+
+        <br>
+        <button type="submit" class="btn btn-primary">Log in</button>
+    </form>
+</div>

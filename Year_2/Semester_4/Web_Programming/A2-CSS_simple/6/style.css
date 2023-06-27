@@ -1,0 +1,29 @@
+* {
+    margin: 0;
+}
+
+table {
+    min-width: 70%;
+    text-align: left;
+    border-collapse: collapse;
+    margin: 10rem auto;
+}
+
+th, td {
+    border-bottom: 1px solid coral;
+    padding: 0.5rem;
+}
+
+thead {
+    color: white;
+    background: coral;
+}
+
+tbody {
+    transition: visibility 1s, opacity 1s;
+}
+
+thead:hover+tbody {
+    visibility: collapse;
+    opacity: 0;
+}

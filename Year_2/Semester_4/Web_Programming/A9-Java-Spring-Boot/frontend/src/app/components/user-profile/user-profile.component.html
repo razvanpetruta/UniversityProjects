@@ -1,0 +1,42 @@
+<section class="p-5">
+    <div class="container py-5 h-100">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col-md-12 col-xl-4">
+                <div class="card" style="border-radius: 15px;">
+                    <div class="card-body text-center">
+                        <div *ngIf="userProfile" class="mt-3 mb-4">
+                            <img [src]="userProfile.imageURL"
+                                class="rounded-circle img-fluid" style="width: 100px; height: 100px;" alt="profile image" />
+                        </div>
+
+                        <h4 class="mb-2">{{username}}</h4>
+
+                        <div class="text-start mb-2 px-3">
+                            <p class="text-custom mb-2 fw-bold">Name: </p>
+                            <p *ngIf="userProfile" class="text-custom mb-2">{{userProfile.name}}</p>
+                        </div>
+
+                        <div class="text-start mb-2 px-3">
+                            <p class="text-custom mb-2 fw-bold">Email: </p>
+                            <p *ngIf="userProfile" class="text-custom mb-2">{{userProfile.email}}</p>
+                        </div>
+
+                        <div class="text-start mb-2 px-3">
+                            <p class="text-custom mb-2 fw-bold">Age: </p>
+                            <p *ngIf="userProfile" class="text-custom mb-2">{{userProfile.age}}</p>
+                        </div>
+
+                        <div class="text-start mb-2 px-3">
+                            <p class="text-custom mb-2 fw-bold">Home Town: </p>
+                            <p *ngIf="userProfile" class="text-custom mb-2">{{userProfile.homeTown}}</p>
+                        </div>
+
+                        <div class="text-start mb-2 px-3">
+                            <a [routerLink]="['/users-update/', username]">Edit general info</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

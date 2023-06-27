@@ -1,0 +1,155 @@
+import { Component, OnInit } from '@angular/core';
+import { ToastrService } from 'ngx-toastr';
+import { Book, RentedBook } from 'src/app/core/model/book.model';
+import { GeneralService } from 'src/app/core/service/general.service';
+import { StorageService } from 'src/app/core/service/storage.service';
+
+@Component({
+  selector: 'app-dashboard',
+  templateUrl: './dashboard.component.html',
+  styleUrls: ['./dashboard.component.css'],
+})
+export class DashboardComponent implements OnInit {
+  genres: string[] = [];
+  books: Book[] = [];
+  rentedBooks: RentedBook[] = [];
+  unapprovedRentals: RentedBook[] = [];
+  selectedGenre: string = "";
+
+  role: string = "";
+  isLoggedIn = false;
+  username: string = "";
+
+  constructor(private generalService: GeneralService, private storageService: StorageService, private toastrService: ToastrService) {}
+
+  ngOnInit(): void {
+    this.isLoggedIn = this.storageService.isLoggedIn();
+
+    if (this.isLoggedIn) {
+      const user = this.storageService.getUser();
+      this.role = user.role;
+      this.username = user.user;
+    }
+
+    this.generalService.getGenres().subscribe({
+      next: (response) => {
+        this.genres = response;
+      },
+      complete: () => {
+        this.selectedGenre = this.genres[0];
+        this.onGenreSelect();
+      },
+    });
+
+    this.getRentals();
+
+    this.getUnapprovedRentals();
+  }
+
+  getRentals(): void {
+    const user = this.storageService.getUser();
+    this.generalService.getRentals(user.session_id).subscribe({
+      next: (response) => {
+        this.rentedBooks = response;
+      },
+    });
+  }
+
+  getUnapprovedRentals(): void {
+    this.generalService.getUnapprovedRentals().subscribe({
+      next: (response) => {
+        if (response.rentals.length > 0) {
+          this.unapprovedRentals = response.rentals;
+        } else {
+          this.unapprovedRentals = [];
+        }
+      },
+    });
+  }
+
+  onGenreSelect() {
+    this.generalService.getFilteredBooks(this.selectedGenre).subscribe({
+      next: (response) => {
+        this.books = response;
+      },
+    });
+  }
+
+  requestBook(id: number): void {
+    const user = this.storageService.getUser();
+    this.generalService.requestBook(id, user.session_id).subscribe({
+      next: (response) => {
+        if (response.message.includes("Error")) {
+          this.toastrService.error(response.message, "", { progressBar: true });
+        } else {
+          this.toastrService.success(response.message, "", { progressBar: true });
+        }
+      },
+      error: (error) => {
+        
+      }
+    });
+  }
+
+  approveRental(id: number): void {
+    const user = this.storageService.getUser();
+    this.generalService.approveRental(id, user.session_id).subscribe({
+      next: (response) => {
+        if (response.message.includes("Error")) {
+          this.toastrService.error(response.message, "", { progressBar: true });
+        } else {
+          this.toastrService.success(response.message, "", { progressBar: true });
+        }
+      },
+      error: (error) => {
+        
+      },
+      complete: () => {
+        this.getRentals();
+        this.getUnapprovedRentals();
+      }
+    });
+  }
+
+  rejectRental(id: number): void {
+    const user = this.storageService.getUser();
+    this.generalService.rejectRental(id, user.session_id).subscribe({
+      next: (response) => {
+        if (response.message.includes("Error")) {
+          this.toastrService.error(response.message, "", { progressBar: true });
+        } else {
+          this.toastrService.success(response.message, "", { progressBar: true });
+        }
+      },
+      error: (error) => {
+        
+      },
+      complete: () => {
+        this.getRentals();
+        this.getUnapprovedRentals();
+      }
+    });
+  }
+
+  deleteBook(id: number): void {
+    const user = this.storageService.getUser();
+    if (confirm('Are you sure you want to delete this book?')) {
+      this.generalService.deleteBook(user.session_id, id).subscribe({
+        next: (response) => {
+          this.toastrService.success(response.message, "", { progressBar: true });
+        },
+        complete: () => {
+          this.onGenreSelect();
+        }
+      });
+    }
+  }
+
+  isUser(): boolean {
+    return this.role === "USER";
+  }
+
+  isAdmin(): boolean {
+    return this.role === "ADMIN";
+  }
+}

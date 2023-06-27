@@ -1,0 +1,26 @@
+<div class="container container-custom text-center">
+
+    <hr>
+    <br>
+    <h3>All cities</h3>
+    <br>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col" hidden>ID</th>
+                <th scope="col">Name</th>
+                <th scope="col">Country</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let city of allCities">
+                <td hidden>{{city.id}}</td>
+                <td>{{city.name}}</td>
+                <td>{{city.country}}</td>
+                <td><a [routerLink]="['/neighbours/', city.id]">Select</a></td>
+            </tr>
+        </tbody>
+    </table>
+    <br>
+
+</div>

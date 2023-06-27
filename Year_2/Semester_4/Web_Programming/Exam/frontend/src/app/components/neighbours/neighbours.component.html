@@ -1,0 +1,35 @@
+<div class="container container-custom text-center">
+
+    <hr>
+    <br>
+    <h3 *ngIf="city !== undefined">All neighbours for {{city.name}}</h3>
+    <br>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col" hidden>ID</th>
+                <th scope="col">City 1</th>
+                <th scope="col">City 2</th>
+                <th scope="col">Duration (minutes)</th>
+                <th scope="col">Distance (kms)</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let link of neighbours">
+                <td hidden>{{link.id}}</td>
+                <td>{{link.city1.name}}</td>
+                <td>{{link.city2.name}}</td>
+                <td>{{link.duration}}</td>
+                <td>{{link.distance}}</td>
+                <td *ngIf="cityID !== link.city1.id.toString()"><a [routerLink]="['/neighbours/', link.city1.id]">Select</a></td>
+                <td *ngIf="cityID !== link.city2.id.toString()"><a [routerLink]="['/neighbours/', link.city2.id]">Select</a></td>
+            </tr>
+        </tbody>
+    </table>
+    <br>
+
+    <button type="button" class="btn btn-primary" routerLink="/finalroute">Show route</button>
+    <br>
+    <br>
+    <button type="button" class="btn btn-primary" (click)="goBack()">Go back</button>
+</div>

@@ -1,0 +1,137 @@
+<div class="container container-fluid container-custom">
+  <div>
+    <h3>Approved rentals</h3>
+
+    <br><br>
+
+    <h5 *ngIf="rentedBooks.length === 0">No approved rentals found</h5>
+
+    <table *ngIf="rentedBooks.length > 0" class="table">
+      <thead>
+        <tr>
+          <th scope="col">Title</th>
+          <th scope="col">User</th>
+          <th scope="col">Start date</th>
+          <th scope="col">Return date</th>
+          <th scope="col">Approved</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let book of rentedBooks">
+          <td>{{book.book.title}}</td>
+          <td>{{book.user.username}}</td>
+          <td>{{book.startDate}}</td>
+          <td>{{book.endDate}}</td>
+          <td>{{book.approved ? "YES" : "NO"}}</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <br><br><br><br>
+  </div>
+
+  <div *ngIf="isAdmin()" class="admin-content">
+    <h3>Unapproved rentals</h3>
+
+    <br>
+
+    <h5 *ngIf="unapprovedRentals.length === 0">No rentals found</h5>
+
+    <table *ngIf="unapprovedRentals.length > 0" class="table">
+      <thead>
+        <tr>
+          <th scope="col">Title</th>
+          <th scope="col">User</th>
+          <th scope="col">Start date</th>
+          <th scope="col">Return date</th>
+          <th scope="col">Approved</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let book of unapprovedRentals">
+          <td>{{book.book.title}}</td>
+          <td>{{book.user.username}}</td>
+          <td>{{book.startDate}}</td>
+          <td>{{book.endDate}}</td>
+          <td>{{book.approved === 1 ? "YES" : "NO"}}</td>
+          <td><a (click)="approveRental(book.id)">Approve</a></td>
+          <td><a (click)="rejectRental(book.id)">Reject</a></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <br><br><br><br>
+  </div>
+  
+  <select class="form-select select-custom" aria-label="Default select example" [(ngModel)]="selectedGenre"
+    (change)="onGenreSelect()">
+    <option *ngFor="let genre of genres">{{genre}}</option>
+  </select>
+
+  <div *ngIf="isAdmin()" class="admin-content">
+    <h3>All books</h3>
+
+    <br><br>
+
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col" style="display: none;">ID</th>
+          <th scope="col">Title</th>
+          <th scope="col">Author</th>
+          <th scope="col">No pages</th>
+          <th scope="col">Price</th>
+          <th scope="col">Genre</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let book of books">
+          <td>{{book.title}}</td>
+          <td>{{book.author}}</td>
+          <td>{{book.noPages}}</td>
+          <td>{{book.price}}</td>
+          <td>{{book.genre}}</td>
+          <td><a [routerLink]="['/update-book/', book.id]">Update</a></td>
+          <td><a (click)="deleteBook(book.id)">Delete</a></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <br><br>
+
+    <button class="btn btn-primary" routerLink="/add-book">Add new book</button>
+
+    <br><br><br>
+  </div>
+
+  <div *ngIf="isUser()" class="user-content">
+    <h3>All books</h3>
+
+    <br>
+
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col" style="display: none;">ID</th>
+          <th scope="col">Title</th>
+          <th scope="col">Author</th>
+          <th scope="col">No pages</th>
+          <th scope="col">Price</th>
+          <th scope="col">Genre</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let book of books">
+          <td>{{book.title}}</td>
+          <td>{{book.author}}</td>
+          <td>{{book.noPages}}</td>
+          <td>{{book.price}}</td>
+          <td>{{book.genre}}</td>
+          <td><a (click)="requestBook(book.id)">Request book</a></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <br><br><br>
+  </div>
+</div>

@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="./style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+    <title>Python.org clone</title>
+</head>
+<body class="python home" id="homepage">
+    <section id="main">
+        <div id="top" class="top-bar">
+            <nav class="container">
+                <ul class="menu menu-1" role="tree">
+                    <li class="li-python">
+                        <a href="" title="The Python Programming Language">Python</a>
+                    </li>
+                    <li class="li-psf">
+                        <a href="" title="The Python Software Foundation">PSF</a>
+                    </li>
+                    <li class="li-docs">
+                        <a href="" title="Python Documentation">Docs</a>
+                    </li>
+                    <li class="li-pypi">
+                        <a href="" title="Python Package Index">PyPI</a>
+                    </li>
+                    <li class="li-jobs">
+                        <a href="" title="Python Job Board">Jobs</a>
+                    </li>
+                    <li class="li-community">
+                        <a href="">Community</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+
+        <header class="container">
+            <div class="logo-and-search">
+                <div class="left">
+                    <h1 class="left-headline">
+                        <img class="python-logo" src="./python-logo@2x.png" alt="python™">
+                    </h1>
+                </div>
+                <div class="right">
+                    <a class="donate-button">Donate</a>
+                    <div class="options">
+                        <form class="form-search">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                            <input type="search" role="textbox" class="search-field" placeholder="Search" value="">
+                            <button type="submit" name="submit" id="submit" class="search-button" title="Submit this Search">GO</button>
+                        </form>
+                        <div class="socialize">Socialize</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bottom-bar">
+                <nav class="container-menu-2">
+                    <ul class="menu menu-2">
+                        <li>
+                            <a href="" title="The Python Programming Language">About</a>
+                        </li>
+                        <li>
+                            <a href="" title="The Python Software Foundation">Downloads</a>
+                        </li>
+                        <li>
+                            <a href="" title="Python Documentation">Documentation</a>
+                        </li>
+                        <li>
+                            <a href="" title="Python Package Index">Community</a>
+                        </li>
+                        <li>
+                            <a href="" title="Python Job Board">Success Stories</a>
+                        </li>
+                        <li>
+                            <a href="">News</a>
+                        </li>
+                        <li>
+                            <a href="">Events</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+
+            <div class="code-and-description">
+                <div class="code-example">
+                    <code>
+                        <span class="comment"># Python 3: Fibonacci series up to n</span>
+                        <br>
+                        >>> def fib(n): <br>
+                        >>> &nbsp;&nbsp;&nbsp;&nbsp;    a, b = 0, 1<br>
+                        >>> &nbsp;&nbsp;&nbsp;&nbsp;    while a < n:<br>
+                        >>> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;        print(a, end=' ')<br>
+                        >>> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;        a, b = b, a+b<br>
+                        >>> &nbsp;&nbsp;&nbsp;&nbsp;    print()<br>
+                        >>> fib(1000)<br>
+                        <span class="output">0 1 1 2 3 5 8 13 21 34 55 89 144 233 377 610 987</span>
+                    </code>
+                    <a class="run-button" href="">>_</a>
+                </div>
+                <div class="python-description">
+                    <h1 class="python-header">Functions Defined</h1>
+                    <p class="python-paragraph">
+                        The core of extensible programming is defining functions.
+                        Python allows mandatory and optional arguments, keyword arguments,
+                        and even arbitrary argument lists.
+                        <a href="">More about defining functions in Python 3.</a>
+                    </p>
+                    <ol class="numbers-nav">
+                        <li><a class="">1</a></li>
+                        <li><a class="">2</a></li>
+                        <li><a class="">3</a></li>
+                        <li><a class="">4</a></li>
+                        <li><a class="">5</a></li>
+                    </ol>
+                </div>
+            </div>
+
+            <div class="introduction">
+                <p>
+                    Python is a programming language that lets you work quickly <br>
+                    and integrate systems more effectively.
+                    <a class="read-more" href="">Learn More</a>
+                </p>
+            </div>
+        </header>
+    </section>
+
+    <section id="info">
+        <div class="row">
+            <div class="small-widget">
+                <h2 class="widget-title"><i class="fa-solid fa-power-off"></i>Get Started</h2>
+                <p>Whether you're new to programming or an experienced developer, it's easy to learn and use Python.</p>
+                <p><a href="">Start with our Beginner’s Guide</a></p>
+            </div>
+            <div class="small-widget">
+                <h2 class="widget-title"><i class="fa-solid fa-download"></i>Download</h2>
+                <p>Python source code and installers are available for download for all versions!</p>
+                <p>Latest: <a href="">Python 3.11.2</a></p>
+            </div>
+            <div class="small-widget">
+                <h2 class="widget-title"><i class="fa-solid fa-file-contract"></i>Docs</h2>
+                <p>Documentation for Python's standard library, along with tutorials and guides, are available online.</p>
+                <p><a href="">docs.python.org</a></p>
+            </div>
+            <div class="small-widget">
+                <h2 class="widget-title"><i class="fa-solid fa-briefcase"></i>Jobs</h2>
+                <p>
+                    Looking for work or have a Python related position that you're trying to hire for?
+                    Our <b>relaunched community-run job board</b> is the place to go.
+                </p>
+                <p><a href="">jobs.python.org</a></p>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

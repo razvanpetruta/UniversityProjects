@@ -1,0 +1,33 @@
+* {
+    margin: 0;
+}
+
+body {
+    position: relative;
+}
+
+div {
+    padding: 10%;
+}
+
+label, textarea, button {
+    display: block;
+    margin: 1rem auto;
+}
+
+label {
+    text-align: center;
+}
+
+table {
+    margin: 1rem auto;
+}
+
+table, tr, td {
+    border: solid 1px black;
+    border-collapse: collapse;
+}
+
+td {
+    padding: 5px;
+}

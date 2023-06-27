@@ -1,0 +1,30 @@
+<div class="container container-fluid mt-5 mb-5 container-custom">
+    <form #userForm="ngForm" (ngSubmit)="onSubmit(userForm)">
+        <div class="form-group mt-3">
+            <label>Name</label>
+            <input *ngIf="userProfile" type="text" name="bio" class="form-control" [(ngModel)]="userProfile.name" required autocomplete="off">
+        </div>
+        <div class="form-group mt-3">
+            <label>Email</label>
+            <input *ngIf="userProfile" type="text" name="location" class="form-control" [(ngModel)]="userProfile.email" required autocomplete="off">
+        </div>
+        <div class="form-group mt-3">
+            <label>Age</label>
+            <input *ngIf="userProfile" id="startDate" name="birthDate" class="form-control" type="text" [(ngModel)]="userProfile.age" required
+                autocomplete="off">
+        </div>
+        <div class="form-group mt-3">
+            <label>Home Town</label>
+            <input *ngIf="userProfile" id="dasd" name="homeTown" class="form-control" type="text" [(ngModel)]="userProfile.homeTown" required
+                autocomplete="off">
+        </div>
+        <div class="form-group mt-3 mb-3">
+            <label>Image</label>
+            <input *ngIf="userProfile" id="aaa" name="imageURL" class="form-control" type="text" [(ngModel)]="userProfile.imageURL" required
+                autocomplete="off">
+        </div>
+        <div class="form-group">
+            <button class="btn btn-outline-primary" [disabled]="!userForm.form.valid">Update</button>
+        </div>
+    </form>
+</div>

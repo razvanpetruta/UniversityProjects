@@ -1,0 +1,188 @@
+* {
+    margin: 0;
+}
+
+.stairs {
+    margin: 12rem auto;
+    position: relative;
+    max-width: 350px;
+    animation: spin 20s linear infinite;
+    transform-style: preserve-3d;
+}
+
+.face {
+    position: absolute;
+    opacity: 1;
+}
+
+.front {
+    background-color: #929892;
+    width: 50px;
+    transform: translateZ(25px);
+}
+
+.back {
+    background-color: #343634;
+    width: 50px;
+    transform: rotateY(180deg) translateZ(25px);
+}
+
+.right {
+    background-color: #343634;
+    width: 50px;
+    transform: rotateY(90deg) translateZ(25px);
+}
+
+.left {
+    background-color: #929892;
+    width: 50px;
+    transform: rotateY(-90deg) translateZ(25px);
+}
+
+.top {
+    background-color: #606460;
+    width: 50px;
+    transform: rotateX(90deg) translateZ(25px);
+}
+
+.bottom {
+    box-shadow: 50px 50px 50px 25px #484848;
+    background-color: #343634;
+    width: 50px;
+    transform: rotateX(-90deg) translateZ(25px);
+}
+
+.cube {
+    display: inline-block;
+    width: 50px;
+    position: relative;
+    transform-style: preserve-3d;
+}
+
+.cube-1 {
+    height: 50px;
+}
+
+.front-1 {
+    height: 50px;
+}
+
+.back-1 {
+    height: 50px;
+}
+
+.right-1 {
+    height: 50px;
+}
+
+.left-1 {
+    height: 50px;
+}
+
+.top-1 {
+    height: 50px;
+}
+
+.bottom-1 {
+    height: 50px;
+}
+
+.cube-2 {
+    height: 75px;
+    left: -4px;
+}
+
+.front-2 {
+    height: 75px;
+}
+
+.back-2 {
+    height: 75px;
+}
+
+.right-2 {
+    height: 75px;
+}
+
+.left-2 {
+    height: 75px;
+}
+
+.top-2 {
+    height: 50px;
+}
+
+.bottom-2 {
+    height: 50px;
+    transform: rotateX(-90deg) translateZ(50px);
+}
+
+.cube-3 {
+    height: 100px;
+    left: -8px;
+}
+
+.front-3 {
+    height: 100px;
+}
+
+.back-3 {
+    height: 100px;
+}
+
+.right-3 {
+    height: 100px;
+}
+
+.left-3 {
+    height: 100px;
+}
+
+.top-3 {
+    height: 50px;
+}
+
+.bottom-3 {
+    height: 50px;
+    transform: rotateX(-90deg) translateZ(75px);
+}
+
+.cube-4 {
+    height: 125px;
+    left: -12px;
+}
+
+.front-4 {
+    height: 125px;
+}
+
+.back-4 {
+    height: 125px;
+}
+
+.right-4 {
+    height: 125px;
+}
+
+.left-4 {
+    height: 125px;
+}
+
+.top-4 {
+    height: 50px;
+}
+
+.bottom-4 {
+    height: 50px;
+    transform: rotateX(-90deg) translateZ(100px);
+}
+
+@keyframes spin {
+    from {
+        transform: rotateY(0deg) rotateZ(-30deg)
+    }
+
+    to {
+        transform: rotateY(360deg) rotateZ(0deg)
+    }
+}
