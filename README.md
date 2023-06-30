@@ -17,3 +17,8 @@ Some of my assignments and interesting projects that I developed during the year
     - [🗃️ Databases](https://github.com/razvanpetruta/UniversityProjects/tree/main/Year_2/Semester_3/Databases)
     - [🧱 Logical and Functional Programming](https://github.com/razvanpetruta/UniversityProjects/tree/main/Year_2/Semester_3/Logical_And_Functional_Programming)
     - [🎲 Probabilities and Statistics](https://github.com/razvanpetruta/UniversityProjects/tree/main/Year_2/Semester_3/Probabilities_And_Statistics)
+- [🐓 Semester 4 🐓](https://github.com/razvanpetruta/UniversityProjects/tree/main/Year_2/Semester_4)
+    - [👽 Artificial Inteligence](https://github.com/razvanpetruta/UniversityProjects/tree/main/Year_2/Semester_4/Artificial_Inteligence)
+    - [🗃️ Database Management Systems](https://github.com/razvanpetruta/UniversityProjects/tree/main/Year_2/Semester_4/Database_Management_Systems)
+    - [🕷️ Web Programming](https://github.com/razvanpetruta/UniversityProjects/tree/main/Year_2/Semester_4/Web_Programming)
+    - [🐌 Systems for Design and Implementation](https://github.com/razvanpetruta/UniversityProjects/tree/main/Year_2/Semester_4/Systems_For_Design_And_Implementation)
