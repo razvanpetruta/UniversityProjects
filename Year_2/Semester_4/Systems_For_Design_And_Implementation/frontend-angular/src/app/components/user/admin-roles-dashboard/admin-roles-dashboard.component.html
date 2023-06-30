@@ -1,0 +1,72 @@
+<div *ngIf="showLoader" class="d-flex justify-content-center m-5">
+    <div class="spinner-border" role="status">
+        <span class="visually-hidden">Loading...</span>
+    </div>
+</div>
+
+<div *ngIf="!showLoader" class="container container-fluid mt-5 mb-5 container-custom">
+    <form #userForm="ngForm" (ngSubmit)="onSubmit(userForm)">
+        <div class="row">
+
+            <div class="col-lg-6 col-md-12 mt-5">
+                <div class="form-group mt-3">
+                    <label>Change user's roles</label>
+                    <input type="text" name="options" class="form-control" placeholder="select user by username"
+                        matInput [matAutocomplete]="car" [(ngModel)]="selectedOption" #userSearchInput required
+                        (input)="search(userSearchInput.value)" matAutocompletePosition="below">
+                    <mat-autocomplete #car="matAutocomplete" (optionSelected)="onSelection($event)">
+                        <div *ngIf="!showSearchLoader">
+                            <mat-option *ngFor="let option of options" [value]="option">
+                                {{option.username}}
+                            </mat-option>
+                        </div>
+                        <mat-option *ngIf="!showSearchLoader && options === undefined" disabled>
+                            no option
+                        </mat-option>
+                        <mat-option *ngIf="!showSearchLoader && options !== undefined && options.length === 0" disabled>
+                            no results found
+                        </mat-option>
+                        <mat-option *ngIf="showSearchLoader" disabled>
+                            <div class="d-flex justify-content-center m-5">
+                                <div class="spinner-border" role="status">
+                                    <span class="visually-hidden">Loading...</span>
+                                </div>
+                            </div>
+                        </mat-option>
+                    </mat-autocomplete>
+
+                    <div class="page-size">
+                        <label>Change the number of elements per page:</label>
+                        <input type="number" name="elementsPerPage" class="form-control"
+                            [(ngModel)]="selectedElementsPerPage" required>
+
+                        <button class="btn btn-primary btn-update-page-size" (click)="updateElementsPerPage()">Update</button>
+                    </div>
+                </div>
+            </div>
+
+            <div *ngIf="selectedUser" class="col-lg-6 col-md-12">
+                <div class="mt-5 ms-5">
+                    <h4>{{selectedUser.username}}'s roles:</h4>
+                    <div class="col-auto form-check mt-3 mb-3">
+                        <label class="form-check-label" for="exampleCheck1">User</label>
+                        <input type="checkbox" name="ROLE_USER" class="form-check-input check-custom" id="exampleCheck1"
+                            [(ngModel)]="checkUser">
+                    </div>
+                    <div class="col-auto form-check mt-3 mb-3">
+                        <label class="form-check-label" for="exampleCheck1">Moderator</label>
+                        <input type="checkbox" name="ROLE_MODERATOR" class="form-check-input check-custom"
+                            id="exampleCheck2" [(ngModel)]="checkModerator">
+                    </div>
+                    <div class="col-auto form-check mt-3 mb-3">
+                        <label class="form-check-label" for="exampleCheck1">Admin</label>
+                        <input type="checkbox" name="ROLE_ADMIN" class="form-check-input check-custom"
+                            id="exampleCheck3" [(ngModel)]="checkAdmin">
+                    </div>
+                    <button type="button" class="btn btn-primary" (click)="updateRoles()">Update roles</button>
+                </div>
+            </div>
+
+        </div>
+    </form>
+</div>

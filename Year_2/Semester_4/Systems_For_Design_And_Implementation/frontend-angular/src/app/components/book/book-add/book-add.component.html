@@ -1,0 +1,84 @@
+<div *ngIf="showLoader" class="d-flex justify-content-center m-5">
+    <div class="spinner-border" role="status">
+        <span class="visually-hidden">Loading...</span>
+    </div>
+</div>
+
+<div *ngIf="!showLoader" class="container container-fluid mt-5 mb-5 container-custom">
+    <form #bookForm="ngForm" (ngSubmit)="onSubmit(bookForm)">
+        <div class="form-group mt-3">
+            <label>Title</label>
+            <input type="text" name="title" class="form-control" [(ngModel)]="title" required autocomplete="off">
+            <div *ngIf="errorMessages.title!== null" class="alert alert-danger" role="alert">
+                {{errorMessages.title}}
+            </div>
+        </div>
+        <div class="form-group mt-3">
+            <label>Author</label>
+            <input type="text" name="address" class="form-control" [(ngModel)]="author" required autocomplete="off">
+            <div *ngIf="errorMessages.author!== null" class="alert alert-danger" role="alert">
+                {{errorMessages.author}}
+            </div>
+        </div>
+        <div class="form-group mt-3">
+            <label>Description</label>
+            <textarea class="form-control" name="description" id="exampleFormControlTextarea1" [(ngModel)]="description" rows="10" required></textarea>
+            <div *ngIf="errorMessages.description!== null" class="alert alert-danger" role="alert">
+                {{errorMessages.description}}
+            </div>
+        </div>
+        <div class="form-group mt-3">
+            <label>Publisher</label>
+            <input type="text" name="publisher" class="form-control" [(ngModel)]="publisher" required autocomplete="off">
+            <div *ngIf="errorMessages.publisher!== null" class="alert alert-danger" role="alert">
+                {{errorMessages.publisher}}
+            </div>
+        </div>
+        <div class="form-group mt-3">
+            <label>Published Year</label>
+            <input type="number" name="publishedYear" class="form-control" [(ngModel)]="publishedYear" required
+                autocomplete="off">
+            <div *ngIf="errorMessages.publishedYear !== null" class="alert alert-danger" role="alert">
+                {{errorMessages.publishedYear}}
+            </div>
+        </div>
+        <div class="form-group mt-3">
+            <label>Price</label>
+            <input type="number" name="price" class="form-control" [(ngModel)]="price" required
+                autocomplete="off">
+            <div *ngIf="errorMessages.price!== null" class="alert alert-danger" role="alert">
+                {{errorMessages.price}}
+            </div>
+        </div>
+        <div class="form-group mt-3">
+            <label>Library</label>
+            <input type="text" name="options" class="form-control" placeholder="select library, search by name" 
+            matInput [matAutocomplete]="car" [(ngModel)]="selectedOption" #librarySearchInput required
+            (input)="search(librarySearchInput.value)" matAutocompletePosition="below">
+            <mat-autocomplete #car="matAutocomplete" (optionSelected)="onSelection($event)">
+                <div *ngIf="!showSearchLoader">
+                    <mat-option *ngFor="let option of options" [value]="option">
+                        name: {{option.name}}, email: {{option.email}}
+                    </mat-option>
+                </div>
+                <mat-option *ngIf="!showSearchLoader && options === undefined" disabled>
+                    no option
+                </mat-option>
+                <mat-option *ngIf="!showSearchLoader && options !== undefined && options.length === 0" disabled>
+                    no results found
+                </mat-option>
+                <mat-option *ngIf="showSearchLoader" disabled>
+                    <div class="d-flex justify-content-center m-5">
+                        <div class="spinner-border" role="status">
+                            <span class="visually-hidden">Loading...</span>
+                        </div>
+                    </div>
+                </mat-option>
+            </mat-autocomplete>
+        </div>
+        <div class="form-group mt-3">
+            <button class="btn btn-outline-primary margin-custom" [disabled]="!bookForm.form.valid || !selectedLibrary"><i
+                    class="fa-solid fa-check"></i></button>
+        </div>
+    </form>
+</div>

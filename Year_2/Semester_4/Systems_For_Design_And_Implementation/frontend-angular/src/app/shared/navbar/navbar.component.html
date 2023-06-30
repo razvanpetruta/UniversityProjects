@@ -1,0 +1,88 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light text-center">
+  <div class="container-fluid container-custom">
+    <a class="navbar-brand" routerLink="">BookHub</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+      aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item dropdown ms-3">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
+            data-bs-toggle="dropdown" aria-expanded="false">
+            Libraries
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <li><a class="dropdown-item" (click)="seeAllLibraries()">See
+                all</a></li>
+            <li><a class="dropdown-item" routerLink="/libraries-books-statistics">Books statistics</a></li>
+            <li><a class="dropdown-item" routerLink="/libraries-readers-statistics">Readers statistics</a></li>
+            <li *ngIf="isLoggedIn && (isUser() || isModerator() || isAdmin())"><a class="dropdown-item" routerLink="/libraries-add">Add new</a></li>
+          </ul>
+        </li>
+
+        <li class="nav-item dropdown ms-3">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
+            data-bs-toggle="dropdown" aria-expanded="false">
+            Books
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <li><a class="dropdown-item" (click)="seeAllBooks()">See all</a>
+            </li>
+            <li><a class="dropdown-item" [routerLink]="['/books-filter']"
+                [queryParams]="{minPrice: 0, pageNo: 0, pageSize: 25}">Filter by price</a></li>
+            <li *ngIf="isLoggedIn && (isUser() || isModerator() || isAdmin())"><a class="dropdown-item" routerLink="/books-add">Add new</a></li>
+          </ul>
+        </li>
+
+        <li class="nav-item dropdown ms-3">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
+            data-bs-toggle="dropdown" aria-expanded="false">
+            Readers
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <li><a class="dropdown-item" (click)="seeAllReaders()">See
+                all</a></li>
+            <li *ngIf="isLoggedIn && (isUser() || isModerator() || isAdmin())"><a class="dropdown-item" routerLink="/readers-add">Add new</a></li>
+          </ul>
+        </li>
+
+        <li class="nav-item ms-3" *ngIf="!isLoggedIn">
+          <a class="nav-link disabled" aria-current="page" routerLink="/login">Guest</a>
+        </li>
+
+        <li class="nav-item ms-3" *ngIf="!isLoggedIn">
+          <a class="nav-link" aria-current="page" routerLink="/login">
+            <i class="fa-solid fa-user"></i>
+            <i class="fa-solid fa-right-to-bracket"></i>
+          </a>
+        </li>
+
+        <li class="nav-item ms-3" *ngIf="isLoggedIn && !isAdmin()">
+          <a class="nav-link" aria-current="page" [routerLink]="['/users-active/', username]">
+            <i class="fa-solid fa-user"></i>
+             {{username}}
+            </a>
+        </li>
+
+        <li class="nav-item dropdown ms-3" *ngIf="isLoggedIn && isAdmin()">
+          <a class="nav-link" href="#" id="navbarDropdownMenuLink" role="button"
+            data-bs-toggle="dropdown" aria-expanded="false">
+            {{username}}
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <li><a class="dropdown-item" [routerLink]="['/users-active/', username]">Profile</a></li>
+            <li><a class="dropdown-item" routerLink="/admin-roles-dashboard">Manage users</a></li>
+            <li><a class="dropdown-item" routerLink="/admin-data-management-dashboard">Manage data</a></li>
+          </ul>
+        </li>
+
+        <li class="nav-item ms-3" *ngIf="isLoggedIn">
+          <a class="nav-link logout-icon" aria-current="page" (click)="logout()">
+            <i class="fa-solid fa-right-from-bracket logout-icon"></i>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

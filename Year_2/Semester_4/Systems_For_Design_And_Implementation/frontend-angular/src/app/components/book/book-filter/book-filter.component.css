@@ -1,0 +1,18 @@
+.container-custom {
+    max-width: 80%;
+    margin-top: 2rem;
+}
+
+.card-custom {
+    max-width: 80%;
+    margin: 2rem auto !important;
+    font-size: 0.8rem;
+}
+
+.card-body div p {
+    font-size: 0.8rem;
+}
+
+.card-body h4 {
+    color: #36c66b;
+}

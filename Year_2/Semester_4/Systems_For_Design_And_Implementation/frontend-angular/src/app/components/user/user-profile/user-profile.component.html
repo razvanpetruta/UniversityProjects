@@ -1,0 +1,76 @@
+<div *ngIf="showLoader" class="d-flex justify-content-center m-5">
+    <div class="spinner-border" role="status">
+        <span class="visually-hidden">Loading...</span>
+    </div>
+</div>
+
+<section *ngIf="!showLoader" section class="p-5">
+    <div class="container py-5 h-100">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col-md-12 col-xl-4">
+                <div class="card" style="border-radius: 15px;">
+                    <div class="card-body text-center">
+                        <div *ngIf="userProfile && userProfile.gender === 'male'" class="mt-3 mb-4">
+                            <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava6-bg.webp"
+                                class="rounded-circle img-fluid" style="width: 100px;" />
+                        </div>
+
+                        <div *ngIf="userProfile && userProfile.gender === 'female'" class="mt-3 mb-4">
+                            <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava2-bg.webp"
+                                class="rounded-circle img-fluid" style="width: 100px;" />
+                        </div>
+
+                        <h4 class="mb-2">{{username}}</h4>
+
+                        <p *ngIf="isUser()" class="text-muted mb-4">User
+                            <span *ngIf="isModerator()" class="mx-2">|</span>
+                            <span *ngIf="isModerator()" class="mx-2">Moderator</span>
+                            <span *ngIf="isAdmin()" class="mx-2">|</span>
+                            <span *ngIf="isAdmin()" class="mx-2">Admin</span>
+                        </p>
+
+                        <div class="text-start mb-2 px-3">
+                            <p class="text-custom mb-2 fw-bold">Bio: </p>
+                            <p *ngIf="userProfile" class="text-custom mb-2">{{userProfile.bio}}</p>
+                        </div>
+
+                        <div class="text-start mb-2 px-3">
+                            <p class="text-custom mb-2 fw-bold">Location: </p>
+                            <p *ngIf="userProfile" class="text-custom mb-2">{{userProfile.location}}</p>
+                        </div>
+
+                        <div class="text-start mb-2 px-3">
+                            <p class="text-custom mb-2 fw-bold">Birthdate: </p>
+                            <p *ngIf="userProfile" class="text-custom mb-2">{{userProfile.birthDate}}</p>
+                        </div>
+
+                        <div class="text-start mb-2 px-3">
+                            <p class="text-custom mb-2 fw-bold">Gender: </p>
+                            <p *ngIf="userProfile" class="text-custom mb-2">{{userProfile.gender}}</p>
+                        </div>
+
+                        <div class="text-start mb-2 px-3">
+                            <p class="text-custom mb-2 fw-bold">Marital status: </p>
+                            <p *ngIf="userProfile" class="text-custom mb-2">{{userProfile.maritalStatus}}</p>
+                        </div>
+
+                        <div class="d-flex justify-content-between text-center mt-5 mb-2">
+                            <div>
+                                <p class="mb-2 h5">{{totalLibraries}}</p>
+                                <p class="text-muted mb-0">Libraries Created</p>
+                            </div>
+                            <div class="px-3">
+                                <p class="mb-2 h5">{{totalBooks}}</p>
+                                <p class="text-muted mb-0">Books Created</p>
+                            </div>
+                            <div>
+                                <p class="mb-2 h5">{{totalReaders}}</p>
+                                <p class="text-muted mb-0">Readers Created</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

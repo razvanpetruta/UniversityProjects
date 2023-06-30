@@ -1,0 +1,19 @@
+.card-body div p {
+    font-size: 0.8rem;
+}
+
+.card-body h4 {
+    color: #36c66b;
+}
+
+.btn-custom {
+    font-size: 0.8rem;
+}
+
+.btn-custom:hover {
+    color: white;
+}
+
+.container-custom {
+    max-width: 80%;
+}

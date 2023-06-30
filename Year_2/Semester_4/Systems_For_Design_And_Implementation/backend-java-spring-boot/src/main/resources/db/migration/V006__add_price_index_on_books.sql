@@ -1,0 +1,1 @@
+-- CREATE INDEX price_books_index ON books (price);

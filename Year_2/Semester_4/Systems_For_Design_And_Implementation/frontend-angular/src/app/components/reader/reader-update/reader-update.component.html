@@ -1,0 +1,55 @@
+<div *ngIf="showLoader" class="d-flex justify-content-center m-5">
+    <div class="spinner-border" role="status">
+        <span class="visually-hidden">Loading...</span>
+    </div>
+</div>
+
+<div *ngIf="!showLoader" class="container container-fluid mt-5 mb-5 container-custom">
+    <form #readerForm="ngForm" (ngSubmit)="onSubmit(readerForm)">
+        <div class="form-group mt-3">
+            <label>Name</label>
+            <input type="text" name="name" class="form-control" [(ngModel)]="name" required autocomplete="off">
+            <div *ngIf="errorMessages.name!== null" class="alert alert-danger" role="alert">
+                {{errorMessages.name}}
+            </div>
+        </div>
+        <div class="form-group mt-3">
+            <label>Email</label>
+            <input type="email" name="email" class="form-control" [(ngModel)]="email" required autocomplete="off"
+                pattern="^[a-zA-Z0-9][a-zA-Z0-9-.]*@[a-zA-Z0-9][a-zA-Z0-9\.]*">
+            <div *ngIf="errorMessages.email !== null" class="alert alert-danger" role="alert">
+                {{errorMessages.email}}
+            </div>
+        </div>
+        <div class="form-group mt-3">
+            <label>BirthDate</label>
+            <input id="startDate" name="birthDate" class="form-control" type="date" [(ngModel)]="birthDate" required
+                autocomplete="off">
+            <div *ngIf="errorMessages.birthDate !== null" class="alert alert-danger" role="alert">
+                {{errorMessages.birthDate}}
+            </div>
+        </div>
+        <div class="form-group mt-3">
+            <label>Gender</label>
+            <select class="form-select" name="gender" [(ngModel)]="gender" aria-label="Default select example" required>
+                <option value="male" name="male">Male</option>
+                <option value="female" name="female">Female</option>
+            </select>
+            <div *ngIf="errorMessages.gender !== null" class="alert alert-danger" role="alert">
+                {{errorMessages.gender}}
+            </div>
+        </div>
+        <div class="col-auto form-check mt-3 mb-3">
+            <label class="form-check-label" for="exampleCheck1">Student?</label>
+            <input type="checkbox" name="student" class="form-check-input check-custom" id="exampleCheck1"
+                [(ngModel)]="student">
+            <div *ngIf="errorMessages.student !== null" class="alert alert-danger" role="alert">
+                {{errorMessages.student}}
+            </div>
+        </div>
+        <div class="form-group">
+            <button class="btn btn-outline-primary" [disabled]="!readerForm.form.valid"><i
+                    class="fa-solid fa-check"></i></button>
+        </div>
+    </form>
+</div>

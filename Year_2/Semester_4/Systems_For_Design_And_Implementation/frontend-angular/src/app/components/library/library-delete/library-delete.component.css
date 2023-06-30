@@ -1,0 +1,24 @@
+.card-custom {
+    max-width: 30%;
+    margin: 2rem auto !important;
+    font-size: 0.8rem;
+}
+
+.btn-custom {
+    font-size: 0.8rem;
+}
+
+.btn-custom:hover {
+    color: white;
+}
+
+.check-custom:checked {
+    background-color: #36c66b;
+    border-color: #36c66b;
+}
+
+@media only screen and (max-width: 720px) {
+    .card-custom {
+        max-width: 80%;
+    }
+}

@@ -1,0 +1,16 @@
+.container-custom {
+    max-width: 80%;
+}
+
+.ng-valid[required] {
+    border-bottom: 2px solid #36c66b;
+}
+
+.ng-invalid:not(form) {
+    border-bottom: 2px solid #e3243b;
+}
+
+.alert {
+    margin-top: 0.3rem;
+    font-size: 0.8rem;
+}

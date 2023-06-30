@@ -1,0 +1,1 @@
+-- CREATE INDEX fk_library_id_index ON books (library_id);

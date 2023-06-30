@@ -1,0 +1,24 @@
+.container-custom {
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+li a {
+    cursor: pointer;
+}
+
+li a:hover {
+    color: #679289;
+}
+
+.dropdown-item:active {
+    background: transparent;
+}
+
+.nav-link {
+    cursor: pointer;
+}
+
+.logout-icon:hover {
+    color: #e3242b !important;
+}

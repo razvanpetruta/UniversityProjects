@@ -1,0 +1,99 @@
+<div *ngIf="showLoader" class="d-flex justify-content-center m-5">
+    <div class="spinner-border" role="status">
+        <span class="visually-hidden">Loading...</span>
+    </div>
+</div>
+
+<div class="card m-3 text-center card-custom" *ngIf="!showLoader && library !== undefined">
+    <div class="card-body">
+        <div>
+            <p><span class="fw-bold">Name:</span> {{library.name}}</p>
+        </div>
+        <div>
+            <p><span class="fw-bold">Address:</span> {{library.address}}</p>
+        </div>
+        <div>
+            <p><span class="fw-bold">Email:</span> {{library.email}}</p>
+        </div>
+        <div>
+            <p><span class="fw-bold">Website:</span> {{library.website}}</p>
+        </div>
+        <div>
+            <p><span class="fw-bold">Construction Year:</span> {{library.yearOfConstruction}}</p>
+        </div>
+        <div>
+            <p><span class="fw-bold">User: </span><a [routerLink]="['/users/', library.username]">{{library.username}}</a></p>
+        </div>
+
+        <p class="fw-bold">Books:</p>
+        <div class="row">
+            <div class="col-lg-4 li-custom" *ngFor="let book of library.books">
+                <div class="card m-3 text-center">
+                    <div class="card-body">
+                        <div>
+                            <p><span class="fw-bold">Title:</span> {{book.title}}</p>
+                        </div>
+                        <div>
+                            <p><span class="fw-bold">Author:</span> {{book.author}}</p>
+                        </div>
+                        <div>
+                            <p><span class="fw-bold">Publisher:</span> {{book.publisher}}</p>
+                        </div>
+                        <div>
+                            <p><span class="fw-bold">Price:</span> {{book.price}} €</p>
+                        </div>
+                        <div>
+                            <p><span class="fw-bold">Published Year:</span> {{book.publishedYear}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <p class="fw-bold">Readers:</p>
+        <div class="row">
+            <div class="col-lg-4 li-custom" *ngFor="let reader of library.readers">
+                <div class="card m-3 text-center">
+                    <div class="card-body">
+                        <div class="badge text-wrap bg-custom-active m-3" *ngIf="isActive(reader.endDate)">
+                            Active
+                        </div>
+                        <div class="badge text-wrap bg-custom-expired m-3" *ngIf="!isActive(reader.endDate)">
+                            Expired
+                        </div>
+                        <div>
+                            <p><span class="fw-bold">Name:</span> {{reader.name}}</p>
+                        </div>
+                        <div>
+                            <p><span class="fw-bold">Email:</span> {{reader.email}}</p>
+                        </div>
+                        <div>
+                            <p><span class="fw-bold">BirthDate:</span> {{reader.birthDate}}</p>
+                        </div>
+                        <div>
+                            <p><span class="fw-bold">Gender:</span> {{reader.gender}}</p>
+                        </div>
+                        <div>
+                            <p><span class="fw-bold">Is student:</span> {{reader.student ? "Yes" : "No"}}</p>
+                        </div>
+                        <div>
+                            <p><span class="fw-bold">Start Date:</span> {{reader.startDate}}</p>
+                        </div>
+                        <div>
+                            <p><span class="fw-bold">End Date:</span> {{reader.endDate}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div>
+            <button *ngIf="isCorrectUser() || isModerator() || isAdmin()" type="button" [routerLink]="['/libraries-update/', library.id]" class="btn btn-outline-primary m-2 btn-custom">
+                <i class="fa-solid fa-arrows-rotate"></i>
+            </button>
+            <button *ngIf="isAdmin()" type="button" [routerLink]="['/libraries-delete/', library.id]" class="btn btn-outline-danger m-2 btn-custom">
+                <i class="fa-solid fa-trash"></i>
+            </button>
+        </div>
+    </div>
+</div>

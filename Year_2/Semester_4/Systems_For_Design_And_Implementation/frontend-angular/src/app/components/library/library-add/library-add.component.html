@@ -1,0 +1,60 @@
+<div *ngIf="showLoader" class="d-flex justify-content-center m-5">
+    <div class="spinner-border" role="status">
+        <span class="visually-hidden">Loading...</span>
+    </div>
+</div>
+
+<div *ngIf="!showLoader" class="container container-fluid mt-5 mb-5 container-custom">
+    <form #libraryForm="ngForm" autocomplete="off" (ngSubmit)="onSubmit(libraryForm)">
+        <div class="form-floating mt-3">
+            <input type="text" name="name" id="library-name" class="form-control" placeholder="Name" [(ngModel)]="name"
+                required autocomplete="off">
+            <label for="library-name">Name</label>
+            <div *ngIf="errorMessages.name !== null" class="alert alert-danger" role="alert">
+                {{errorMessages.name}}
+            </div>
+        </div>
+
+        <div class="form-floating mt-3">
+            <input type="text" name="address" id="library-address" placeholder="Address" class="form-control"
+                [(ngModel)]="address" required autocomplete="off">
+            <label for="library-address">Address</label>
+            <div *ngIf="errorMessages.address!== null" class="alert alert-danger" role="alert">
+                {{errorMessages.address}}
+            </div>
+        </div>
+
+        <div class="form-floating mt-3">
+            <input type="email" name="email" id="library-email" placeholder="Email" class="form-control"
+                [(ngModel)]="email" required pattern="^[a-zA-Z0-9][a-zA-Z0-9-.]*@[a-zA-Z0-9][a-zA-Z0-9\.]*"
+                autocomplete="off">
+            <label for="library-email">Email</label>
+            <div *ngIf="errorMessages.email!== null" class="alert alert-danger" role="alert">
+                {{errorMessages.email}}
+            </div>
+        </div>
+
+        <div class="form-floating mt-3">
+            <input type="text" name="website" id="library-website" placeholder="Website" class="form-control"
+                [(ngModel)]="website" required autocomplete="off">
+            <label for="library-website">Website</label>
+            <div *ngIf="errorMessages.website!== null" class="alert alert-danger" role="alert">
+                {{errorMessages.website}}
+            </div>
+        </div>
+
+        <div class="form-floating mt-3">
+            <input type="number" name="constructionYear" id="library-construction-year" placeholder="Construction Year"
+                class="form-control" [(ngModel)]="yearOfConstruction" required autocomplete="off">
+            <label for="library-construction-year">Construction Year</label>
+            <div *ngIf="errorMessages.yearOfConstruction !== null" class="alert alert-danger" role="alert">
+                {{errorMessages.yearOfConstruction}}
+            </div>
+        </div>
+
+        <div class="form-group mt-3">
+            <button class="btn btn-outline-primary" [disabled]="!libraryForm.form.valid"><i
+                    class="fa-solid fa-check"></i></button>
+        </div>
+    </form>
+</div>

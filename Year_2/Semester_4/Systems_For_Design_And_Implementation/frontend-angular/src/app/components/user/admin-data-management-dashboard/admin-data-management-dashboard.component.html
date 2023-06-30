@@ -1,0 +1,37 @@
+<div class="container container-fluid mt-5 mb-5 container-custom">
+    <div class="row">
+
+        <div class="col-lg-3 col-md-6 mt-5">
+            <h5>Inserts:</h5>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item insert" (click)="insertAll()">INSERT ALL</li>
+                <li class="list-group-item insert" (click)="insertLibraries()">INSERT LIBRARIES</li>
+                <li class="list-group-item insert" (click)="insertBooks()">INSERT BOOKS</li>
+                <li class="list-group-item insert" (click)="insertReaders()">INSERT READERS</li>
+                <li class="list-group-item insert" (click)="insertMemberships()">INSERT MEMBERSHIPS</li>
+            </ul>
+        </div>
+
+        <div class="col-lg-3 col-md-6 mt-5">
+            <h5>Deletes:</h5>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item delete" (click)="deleteAll()">DELETE ALL</li>
+                <li class="list-group-item delete" (click)="deleteMemberships()">DELETE MEMBERSHIPS</li>
+                <li class="list-group-item delete" (click)="deleteReaders()">DELETE READERS</li>
+                <li class="list-group-item delete" (click)="deleteBooks()">DELETE BOOKS</li>
+                <li class="list-group-item delete" (click)="deleteLibraries()">DELETE LIBRARIES</li>
+            </ul>
+        </div>
+
+        <div class="col-lg-6 col-md-12 mt-5 text-end">
+            <div class="console text-start">
+                <div class="header">Console</div>
+                <div class="output">
+                    <div *ngFor="let message of messages">{{message}}</div>
+                </div>
+            </div>
+            <button type="button" class="btn btn-secondary mt-3" (click)="clearConsole()">Clear console</button>
+        </div>
+
+    </div>
+</div>

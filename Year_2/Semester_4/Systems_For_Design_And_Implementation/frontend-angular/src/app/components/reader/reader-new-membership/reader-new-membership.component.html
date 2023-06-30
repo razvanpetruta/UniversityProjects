@@ -1,0 +1,75 @@
+<div *ngIf="showLoader" class="d-flex justify-content-center m-5">
+    <div class="spinner-border" role="status">
+        <span class="visually-hidden">Loading...</span>
+    </div>
+</div>
+
+<div *ngIf="!showLoader" class="container container-fluid mt-5 mb-5 container-custom">
+    <form #membershipForm="ngForm" (ngSubmit)="onSubmit(membershipForm)">
+        <div class="form-group mt-3">
+            <label>Library</label>
+            <input type="text" name="options" class="form-control" placeholder="select library, search by name" 
+            matInput [matAutocomplete]="car" [(ngModel)]="selectedOption" #librarySearchInput required
+            (input)="search(librarySearchInput.value)" matAutocompletePosition="below">
+            <mat-autocomplete #car="matAutocomplete" (optionSelected)="onSelection($event)">
+                <div *ngIf="!showSearchLoader">
+                    <mat-option *ngFor="let option of options" [value]="option">
+                        name: {{option.name}}, email: {{option.email}}
+                    </mat-option>
+                </div>
+                <mat-option *ngIf="!showSearchLoader && options === undefined" disabled>
+                    no option
+                </mat-option>
+                <mat-option *ngIf="!showSearchLoader && options !== undefined && options.length === 0" disabled>
+                    no results found
+                </mat-option>
+                <mat-option *ngIf="showSearchLoader" disabled>
+                    <div class="d-flex justify-content-center m-5">
+                        <div class="spinner-border" role="status">
+                            <span class="visually-hidden">Loading...</span>
+                        </div>
+                    </div>
+                </mat-option>
+            </mat-autocomplete>
+        </div>
+        
+        <div *ngIf="selectedLibrary && reader" class="row mt-5">
+            <h4>Available memberships:</h4>
+            <div class="col-lg-4 col-md-6 col-sm-12">
+                <div class="card m-3">
+                    <div class="card-body">
+                        <div>
+                            <h4>Base plan</h4>
+                        </div>
+                        <div *ngIf="!reader.student">
+                            <h5 class="mb-3">24.99 €</h5>
+                        </div>
+                        <div *ngIf="reader.student">
+                            <h5 class="text-decoration-line-through">24.99 €</h5>
+                        </div>
+                        <div *ngIf="reader.student">
+                            <h5 class="mb-3">free</h5>
+                        </div>
+                        <div>
+                            <p>For people that love reading...</p>
+                        </div>
+                        <div class="item-custom">
+                            <p> - 1 year availability</p>
+                        </div>
+                        <div class="item-custom">
+                            <p> - rent 5 books / month for free</p>
+                        </div>
+                        <div class="item-custom">
+                            <p> - get 1 free book at the end</p>
+                        </div>
+                    </div>
+                    <div class="form-group m-2">
+                        <button class="btn btn-outline-primary margin-custom btn-custom" >
+                            choose plan
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

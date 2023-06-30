@@ -1,0 +1,69 @@
+<div class="container container-fluid container-custom">
+    <label for="input" class="form-label">Minimum Price</label>
+    <input class="form-control" type="text" placeholder="price..." aria-label="price input" 
+    #priceSearchInput [(ngModel)]="selectedPrice"
+        (input)="search(priceSearchInput.value)">
+    <div id="passwordHelpBlock" class="form-text">
+        Filter books by inputing the minimum price.
+    </div>
+</div>
+
+<div class="container container-fluid mt-5 mb-5 container-custom">
+    <div *ngIf="showLoader" class="d-flex justify-content-center m-5">
+        <div class="spinner-border" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+    </div>
+
+    <div *ngIf="!showLoader" class="row">
+        <div class="col-lg-4 col-md-6 col-sm-12" *ngFor="let book of books; let i = index">
+            <div class="card m-3 text-center">
+                <div class="card-body">
+                    <h4># {{pageNumber * pageSize + i + 1}}</h4>
+                    <div>
+                        <p><span class="fw-bold">Title:</span> {{book.title}}</p>
+                    </div>
+                    <div>
+                        <p><span class="fw-bold">Author:</span> {{book.author}}</p>
+                    </div>
+                    <div>
+                        <p><span class="fw-bold">Publisher:</span> {{book.publisher}}</p>
+                    </div>
+                    <div>
+                        <p><span class="fw-bold">Price:</span> {{book.price}} €</p>
+                    </div>
+                    <div>
+                        <p><span class="fw-bold">Published Year:</span> {{book.publishedYear}}</p>
+                    </div>
+                    <div>
+                        <p><span class="fw-bold">Library ID:</span> {{book.libraryID}}</p>
+                    </div>
+                    <div>
+                        <p><span class="fw-bold">User:</span> {{book.username}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <mat-paginator *ngIf="showPaginator && !showLoader" #paginator
+               class="demo-paginator"
+               (page)="onPageChanged($event)"
+               [length]="noPages * pageSize"
+               [pageSize]="pageSize"
+               [showFirstLastButtons]="true"
+               [pageSizeOptions]="[10, 25, 50]"
+               [pageIndex]="pageNumber"
+               aria-label="Select page">
+    </mat-paginator>
+
+    <div *ngIf="showPaginator && !showLoader" class="page-selector text-end">
+        <mat-form-field>
+            <mat-label>page:</mat-label>
+            <input matInput type="number"
+            [(ngModel)]="goToPageNumber" min="0" max="{{noPages}}"
+            (keyup.enter)="goToPage()"
+            (ngModelChange)="checkPageNumber()">
+        </mat-form-field>
+    </div>
+</div>

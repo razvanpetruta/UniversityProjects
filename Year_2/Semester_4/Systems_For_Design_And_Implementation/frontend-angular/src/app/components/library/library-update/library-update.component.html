@@ -1,0 +1,49 @@
+<div *ngIf="showLoader" class="d-flex justify-content-center m-5">
+    <div class="spinner-border" role="status">
+        <span class="visually-hidden">Loading...</span>
+    </div>
+</div>
+
+<div *ngIf="!showLoader" class="container container-fluid mt-5 mb-5 container-custom">
+    <form #libraryForm="ngForm" (ngSubmit)="onSubmit(libraryForm)">
+        <div class="form-group mt-3">
+            <label>Name</label>
+            <input type="text" name="name" class="form-control" [(ngModel)]="name" required autocomplete="off">
+            <div *ngIf="errorMessages.name !== null" class="alert alert-danger" role="alert">
+                {{errorMessages.name}}
+            </div>
+        </div>
+        <div class="form-group mt-3">
+            <label>Address</label>
+            <input type="text" name="address" class="form-control" [(ngModel)]="address" required autocomplete="off">
+            <div *ngIf="errorMessages.address!== null" class="alert alert-danger" role="alert">
+                {{errorMessages.address}}
+            </div>
+        </div>
+        <div class="form-group mt-3">
+            <label>Email</label>
+            <input type="email" name="email" class="form-control" [(ngModel)]="email" required autocomplete="off" pattern="^[a-zA-Z0-9][a-zA-Z0-9-.]*@[a-zA-Z0-9][a-zA-Z0-9\.]*">
+            <div *ngIf="errorMessages.email!== null" class="alert alert-danger" role="alert">
+                {{errorMessages.email}}
+            </div>
+        </div>
+        <div class="form-group mt-3">
+            <label>Website</label>
+            <input type="text" name="website" class="form-control" [(ngModel)]="website" required autocomplete="off">
+            <div *ngIf="errorMessages.website!== null" class="alert alert-danger" role="alert">
+                {{errorMessages.website}}
+            </div>
+        </div>
+        <div class="form-group mt-3">
+            <label>Construction Year</label>
+            <input type="number" name="constructionYear" class="form-control" [(ngModel)]="yearOfConstruction" required autocomplete="off">
+            <div *ngIf="errorMessages.yearOfConstruction !== null" class="alert alert-danger" role="alert">
+                {{errorMessages.yearOfConstruction}}
+            </div>
+        </div>
+        <div class="form-group mt-3">
+            <button class="btn btn-outline-primary" [disabled]="!libraryForm.form.valid"><i
+                class="fa-solid fa-check"></i></button>
+        </div>
+    </form>
+</div>
