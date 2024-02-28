@@ -1,0 +1,70 @@
+%{
+    #include <stdio.h>
+    #include <stdlib.h>
+    #include <string.h>
+
+    int currentLine = 1;
+%}
+
+%option noyywrap
+%option case-insensitive
+
+DIGIT [0-9]
+NON_ZERO_DIGIT [1-9]
+UNSIGNED_INTEGER {NON_ZERO_DIGIT}{DIGIT}*
+INT_CONSTANT [+-]?{UNSIGNED_INTEGER}|0
+LETTER [a-zA-Z_]
+OTHER_CHAR [ ?!,.]
+STRING_CONSTANT (\"({LETTER}|{DIGIT}|{OTHER_CHAR})*\")
+IDENTIFIER {LETTER}({LETTER}|{DIGIT})*
+WRONG_IDENTIFIER {DIGIT}({LETTER}|{DIGIT})*{LETTER}
+
+%%
+
+"int"|"char"|"string"|"vector"|"if"|"else"|"while"|"read"|"write" {printf("Keyword: %s\n", yytext);}
+
+"+"|"-"|"*"|"/"|"%" {printf("Arithmetic operator: %s\n", yytext);}
+
+"=="|"!="|"<="|">="|"<"|">" {printf("Relational operator: %s\n", yytext);}
+
+"=" {printf("Assignment operator: %s\n", yytext);}
+
+"("|")"|"["|"]"|"{"|"}"|";" {printf("Separator: %s\n", yytext);}
+
+{IDENTIFIER} {printf("Identifier: %s\n", yytext);}
+
+{WRONG_IDENTIFIER} {printf("Wrong identifier: %s\n", yytext); exit(1);}
+
+{INT_CONSTANT} {printf("Integer constant: %s\n", yytext);}
+
+{STRING_CONSTANT} {printf("String constant: %s\n", yytext);}
+
+[ \t]+ {}
+
+[\n]+ {currentLine++;}
+
+. {printf("Unknown token: %s at line %d\n", yytext, currentLine); exit(1);}
+
+%%
+
+int main(int argc, char **argv)
+{
+    if (argc != 2)
+    {
+        printf("Usage: ./lang.exe <input file>\n");
+        exit(1);
+    }
+
+    FILE *fp = fopen(argv[1], "r");
+    if (fp == NULL)
+    {
+        printf("Cannot open file %s\n", argv[1]);
+        exit(1);
+    }
+
+    yyin = fp;
+    yylex();
+    fclose(fp);
+
+    return 0;
+}

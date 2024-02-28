@@ -1,0 +1,72 @@
+%{
+    #include <stdio.h>
+    #include <stdlib.h>
+    #include <string.h>
+    #include "y.tab.h"
+
+    int currentLine = 1;
+%}
+
+%option noyywrap
+%option case-insensitive
+
+DIGIT [0-9]
+NON_ZERO_DIGIT [1-9]
+UNSIGNED_INTEGER {NON_ZERO_DIGIT}{DIGIT}*
+INT_CONSTANT [+-]?{UNSIGNED_INTEGER}|0
+LETTER [a-zA-Z_]
+OTHER_CHAR [ ?!,.]
+STRING_CONSTANT (\"({LETTER}|{DIGIT}|{OTHER_CHAR})*\")
+IDENTIFIER {LETTER}({LETTER}|{DIGIT})*
+WRONG_IDENTIFIER {DIGIT}({LETTER}|{DIGIT})*{LETTER}
+
+%%
+
+"int" {return INT;}
+"char" {return CHAR;}
+"string" {return STRING;}
+"vector" {return VECTOR;}
+"if" {return IF;}
+"else" {return ELSE;}
+"while" {return WHILE;}
+"read" {return READ;}
+"write" {return WRITE;}
+
+"+" {return PLUS;}
+"-" {return MINUS;}
+"*" {return TIMES;}
+"/" {return DIV;}
+"%" {return MOD;}
+
+"==" {return EQUAL;}
+"!=" {return NOT_EQUAL;}
+"<" {return LESS_THAN;}
+"<=" {return LESS_THAN_OR_EQUAL;}
+">" {return GREATER_THAN;}
+">=" {return GREATER_THAN_OR_EQUAL;}
+
+"=" {return ASSIGN;}
+
+"(" {return LEFT_PARENTHESIS;}
+")" {return RIGHT_PARENTHESIS;}
+"[" {return LEFT_BRACKET;}
+"]" {return RIGHT_BRACKET;}
+"{" {return LEFT_BRACE;}
+"}" {return RIGHT_BRACE;}
+";" {return SEMICOLON;}
+
+{IDENTIFIER} {return IDENTIFIER;}
+
+{WRONG_IDENTIFIER} {return -1;}
+
+{INT_CONSTANT} {return INT_CONSTANT;}
+
+{STRING_CONSTANT} {return STRING_CONSTANT;}
+
+[ \t]+ {}
+
+[\n]+ {currentLine++;}
+
+. {printf("Unknown token: %s at line %d\n", yytext, currentLine); exit(1);}
+
+%%

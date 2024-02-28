@@ -1,0 +1,15 @@
+The symbol table has a 3 hash tables: identifiers, int constants and string constants
+Identifiers Symbol Table:
+SymbolTable
+{
+	identifiersHashTable = HashTable {
+		smallest -> (0, 0)
+		n1 -> (5, 0)
+		n2 -> (6, 0)
+		n3 -> (7, 0)
+	}
+}
+Constants Symbol Table:
+SymbolTable
+{
+}

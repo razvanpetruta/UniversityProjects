@@ -1,0 +1,15 @@
+int n1;
+int n2;
+int n3;
+int smallest; 
+read(n1);
+read(n2);
+read(n3);
+smallest = n1;
+if (n2 < smallest) {
+	smallest = n2;
+} 
+if (n3 < smallest) {
+	smallest = n3;
+}
+write(smallest);

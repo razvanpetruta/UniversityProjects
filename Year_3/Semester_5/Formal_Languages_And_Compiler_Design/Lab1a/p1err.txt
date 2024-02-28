@@ -1,0 +1,20 @@
+int 1n1; # an identifier cannot start with a digit
+int n2;
+int n3;
+int smallest; 
+  
+read(n1);
+read(n2);
+read(n3);
+
+smallest = n1;
+
+iff (n2 < smallest) { # the if keyword is spelled wrong and cannot be classified
+	smallest = n2;
+} 
+
+if (n3 < smallest) {
+	smallest = n3;
+}
+
+write(smallest);

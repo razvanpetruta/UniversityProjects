@@ -1,0 +1,40 @@
+The words - predefined tokens are specified between " and ":
+
+program = statementlist
+
+basictype = "int" | "char" | "string"
+
+vectortype = "vector" "<" basictype ">" "[" UNSIGNED_INT "]"
+
+type = basictype | vectortype
+
+declaration = type IDENTIFIER
+
+declarationlist = declaration | declaration ";" declarationlist
+
+factor = "(" expression ")" | IDENTIFIER | CONST
+
+term = term "*" factor | term "/" factor | factor
+
+expression = expression "+" term | expression "-" term | term
+
+assignmentstatement = IDENTIFIER "=" expression
+
+iostatement = "read" "(" IDENTIFIER ")" | "write" "(" IDENTIFIER ")" | "write" "(" CONST ")"
+
+simplestatement = (assignmentstatement | iostatement | declarationlist) ";"
+
+RELATION = "<" | "<=" | "==" | "!=" | ">=" | ">"
+
+condition = expression RELATION expression
+
+ifstatement = "if" "(" condition ")" "{" statementlist "}" ["else" "{" statementlist "}"]
+
+whilestatement = "while" "(" condition ")" "{" statementlist "}"
+
+structstatement = ifstatement | whilestatement
+
+statement = simplestatement | structstatement
+
+statementlist = {statement}
+

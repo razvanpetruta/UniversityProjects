@@ -1,0 +1,26 @@
+Alphabet:
+	- Upper (A-Z) and lower (a-z) case letters of the English alphabet
+	- "_" (underline character)
+	- Decimal digits (0-9)
+
+Lexic:
+	- Special symbols:
+		- operators: + - * / = < <= == != >= >
+		- separators: { } [ ] ( ) ; space newline
+		- reserved words: int char string vector if else while for read write
+	- Identifiers: 
+		- sequence of letters, digits and "_", such that the first character is a letter or "_"
+		- the rule is:
+			digit = "0" | "1" | "2" | "3" | ... | "9"
+			letter = "A" | "B" | "C" | ... | "Z" | "a" | "b" | ... | "z"
+			identifier = (letter|"_"){letter|digit|"_"}
+	- Constants:
+		int:
+			non_zero_digit = "1" | ... | "9"
+			unsigned_int = non_zero_digit{digit}
+			int = "0" | ["+"|"-"]unsigned_int | unsigned_int
+		char:
+			char = "'"(letter|digit|special_char)"'"
+		string:
+			string = """{char}"""
+			special_char = "+" | "-" | "<" | "." | " " | ...

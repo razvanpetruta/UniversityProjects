@@ -1,0 +1,18 @@
+int n;
+int d; 
+string isPrime;
+read(n); 
+isPrime = "yes";
+d = 2;
+while(d * d <= n) {
+	if (n % d == 0) {
+		isPrime = "no";
+	}
+	d = d + 1;
+}  
+write(n);
+if (isPrime == "yes") {
+	write(" is a prime number");
+} else {
+	write(" is not a prime number");
+}
