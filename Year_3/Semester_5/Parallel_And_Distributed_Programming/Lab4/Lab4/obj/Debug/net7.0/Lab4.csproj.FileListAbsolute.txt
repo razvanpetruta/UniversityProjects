@@ -1,0 +1,15 @@
+/Users/razvan.petruta/Documents/UniversityWork/Semester5/ParallelAndDistributedProgramming/Lab4/Lab4/bin/Debug/net7.0/Lab4
+/Users/razvan.petruta/Documents/UniversityWork/Semester5/ParallelAndDistributedProgramming/Lab4/Lab4/bin/Debug/net7.0/Lab4.deps.json
+/Users/razvan.petruta/Documents/UniversityWork/Semester5/ParallelAndDistributedProgramming/Lab4/Lab4/bin/Debug/net7.0/Lab4.runtimeconfig.json
+/Users/razvan.petruta/Documents/UniversityWork/Semester5/ParallelAndDistributedProgramming/Lab4/Lab4/bin/Debug/net7.0/Lab4.dll
+/Users/razvan.petruta/Documents/UniversityWork/Semester5/ParallelAndDistributedProgramming/Lab4/Lab4/bin/Debug/net7.0/Lab4.pdb
+/Users/razvan.petruta/Documents/UniversityWork/Semester5/ParallelAndDistributedProgramming/Lab4/Lab4/obj/Debug/net7.0/Lab4.csproj.AssemblyReference.cache
+/Users/razvan.petruta/Documents/UniversityWork/Semester5/ParallelAndDistributedProgramming/Lab4/Lab4/obj/Debug/net7.0/Lab4.GeneratedMSBuildEditorConfig.editorconfig
+/Users/razvan.petruta/Documents/UniversityWork/Semester5/ParallelAndDistributedProgramming/Lab4/Lab4/obj/Debug/net7.0/Lab4.AssemblyInfoInputs.cache
+/Users/razvan.petruta/Documents/UniversityWork/Semester5/ParallelAndDistributedProgramming/Lab4/Lab4/obj/Debug/net7.0/Lab4.AssemblyInfo.cs
+/Users/razvan.petruta/Documents/UniversityWork/Semester5/ParallelAndDistributedProgramming/Lab4/Lab4/obj/Debug/net7.0/Lab4.csproj.CoreCompileInputs.cache
+/Users/razvan.petruta/Documents/UniversityWork/Semester5/ParallelAndDistributedProgramming/Lab4/Lab4/obj/Debug/net7.0/Lab4.dll
+/Users/razvan.petruta/Documents/UniversityWork/Semester5/ParallelAndDistributedProgramming/Lab4/Lab4/obj/Debug/net7.0/refint/Lab4.dll
+/Users/razvan.petruta/Documents/UniversityWork/Semester5/ParallelAndDistributedProgramming/Lab4/Lab4/obj/Debug/net7.0/Lab4.pdb
+/Users/razvan.petruta/Documents/UniversityWork/Semester5/ParallelAndDistributedProgramming/Lab4/Lab4/obj/Debug/net7.0/Lab4.genruntimeconfig.cache
+/Users/razvan.petruta/Documents/UniversityWork/Semester5/ParallelAndDistributedProgramming/Lab4/Lab4/obj/Debug/net7.0/ref/Lab4.dll
