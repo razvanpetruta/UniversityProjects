@@ -1,0 +1,242 @@
+import random
+
+ALPHABET = ' abcdefghijklmnopqrstuvwxyz'
+
+
+def validate(message):
+    """
+    Checks if the message contains only letters from the alphabet
+
+    :param message: the message we want to encrypt
+    :return: true if the message is valid, false otherwise
+    """
+    for char in message:
+        if char not in ALPHABET:
+            return False
+
+    return True
+
+
+def sieve(bound):
+    """
+    Sieve of Eratosthenes algorithm, a classic algorithm for finding all prime numbers up to a given upper bound.
+    The code generates a list of prime numbers starting from the 10,001st prime number up to the specified bound.
+
+    :param bound: the number of primes that we will generate
+    :return: the list of (bound - 10000) prime numbers after the 10000th prime number
+    """
+    ans = []
+    marked = [False for _ in range(bound + 1)]
+
+    for i in range(2, bound + 1):
+        if not marked[i]:
+            ans.append(i)
+
+            for j in range(i + i, bound + 1, i):
+                marked[j] = True
+
+    return ans[10000:]
+
+
+def get_random_prime(bound):
+    """
+    Returns a random prime number from a list of primes
+
+    :param bound: the upper bound of Sieve of Eratosthenes algorithm
+    :return: a random prime number
+    """
+    primes = sieve(bound)
+
+    return random.choice(primes)
+
+
+def get_int_less_than(p):
+    """
+    Returns a random integer less than p
+
+    :param p: the upper bound
+    :return: the random integer
+    """
+    return random.randint(1, p - 2)
+
+
+def gcd(a, b):
+    """
+    Implements greatest common divisor algorithm on numbers a and b
+
+    :param a: the 1st number
+    :param b: the 2nd number
+    :return: gcd(a, b)
+    """
+
+    while b:
+        r = a % b
+        a = b
+        b = r
+
+    return a
+
+
+def generators(n):
+    """
+    Returns a list of generators of the number n
+
+    :param n: the number n
+    :return: the list of generators of the number n
+    """
+    gens = []
+
+    for g in range(2, n):
+        if gcd(g, n) == 1:
+            gens.append(g)
+
+    return gens
+
+
+def get_random_generator(n):
+    """
+    Returns a random generator of the number n
+
+    :param n: the random number
+    :return: a random generator of the number n
+    """
+    return random.choice(generators(n))
+
+
+def modular_exp(x, y, p):
+    """
+    Efficiently computes (x^y) % p
+
+    :param x: the base
+    :param y: the exponent
+    :param p: the modulus
+    :return: (x^y) % p
+    """
+    res = 1
+    x = x % p
+
+    if x == 0:
+        return 0
+
+    # bit shifting is safer for large numbers, when possible
+    while y > 0:
+        if (y & 1) == 1:
+            res = res * x % p
+
+        y = y >> 1  # y = y // 2
+        x = x * x % p
+
+    return res
+
+
+def keys_generator():
+    """
+    Generates the private and public keys of ElGamal
+
+    :return: (public_key, private_key)
+    """
+    p = get_random_prime(10 ** 7)
+    print("generated prime is = " + str(p))
+
+    g = get_random_generator(p)
+    print("generator g is = " + str(g))
+
+    a = get_int_less_than(p)  # private key
+    ga = modular_exp(g, a, p)
+
+    print("g^a is = " + str(ga))
+
+    public_key = (p, g, ga)
+
+    return public_key, a
+
+
+def encrypt_character(char, public_key):
+    """
+    Encrypt a single character using the ElGamal cryptosystem.
+
+    :param char: The character to be encrypted.
+    :param public_key: A tuple (p, g, ga) representing the ElGamal public key.
+    :return: A tuple (alpha, beta) representing the encrypted character.
+    """
+    p, g, ga = public_key
+    k = get_int_less_than(p)
+    alpha = modular_exp(g, k, p)
+    beta = (ord(char) * modular_exp(ga, k, p)) % p
+
+    return alpha, beta
+
+
+def decrypt_character(alpha, beta, private_key, public_key):
+    """
+    Decrypt a single character using the ElGamal cryptosystem.
+
+    :param alpha: The alpha value from the encrypted tuple.
+    :param beta: The beta value from the encrypted tuple.
+    :param private_key: The private key for decryption.
+    :param public_key: A tuple (p, g, ga) representing the ElGamal public key.
+    :return: The decrypted character.
+    """
+    p, a = public_key[0], private_key
+    inverted_alpha = modular_exp(alpha, p - 1 - a, p)
+    decrypted_number = (inverted_alpha * beta) % p
+
+    return chr(decrypted_number)
+
+
+def encrypt_message(message, public_key):
+    """
+    Encrypt a message using the ElGamal cryptosystem.
+
+    :param message: The message to be encrypted.
+    :param public_key: A tuple (p, g, ga) representing the ElGamal public key.
+    :return: The encrypted message in a formatted string.
+    """
+    encrypted_text = ""
+
+    for char in message:
+        alpha, beta = encrypt_character(char, public_key)
+        encrypted_text += f"({alpha},{beta}) "  # make the encrypted text printable
+
+    return encrypted_text.strip()
+
+
+def decrypt_message(encrypted_text, private_key, public_key):
+    """
+    Decrypt a message encrypted using the ElGamal cryptosystem.
+
+    :param encrypted_text: The encrypted message in the specified format.
+    :param private_key: The private key for decryption.
+    :param public_key: A tuple (p, g, ga) representing the ElGamal public key.
+    :return: The decrypted message.
+    """
+    encrypted_numbers = [tuple(map(int, chunk.strip('()').split(','))) for chunk in encrypted_text.split()]
+    decrypted_text = ""
+
+    for alpha, beta in encrypted_numbers:
+        char = decrypt_character(alpha, beta, private_key, public_key)
+        decrypted_text += char
+
+    return decrypted_text
+
+
+if __name__ == '__main__':
+    initial_message = input("enter the message: ")
+
+    print("message: " + initial_message)
+
+    if not validate(initial_message):
+        print("Invalid characters in input message. Please only use lowercase alphabet letters and spaces.")
+        assert False
+
+    public_key, private_key = keys_generator()
+
+    print("public key = " + str(public_key))
+    print("private key = " + str(private_key))
+
+    encrypted_text = encrypt_message(initial_message, public_key)
+    print("encrypted message: " + encrypted_text)
+
+    decrypted_text = decrypt_message(encrypted_text, private_key, public_key)
+    print("decrypted message: " + decrypted_text)
+    assert decrypted_text == initial_message

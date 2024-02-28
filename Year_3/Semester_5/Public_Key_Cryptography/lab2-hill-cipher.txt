@@ -1,0 +1,139 @@
+"""
+    Hill cipher (for m = 2).
+"""
+import math
+
+import numpy as np
+
+# define the alphabet
+alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ "
+
+# define the dictionaries that help us map a letter to an index and vice versa
+letter_to_index = dict(zip(alphabet, range(len(alphabet))))
+index_to_letter = dict(zip(range(len(alphabet)), alphabet))
+
+
+def mod_inverse(a, m):
+    """
+    The function to compute the modular inverse of a number 'a' modulo 'm' is used to find an integer 'x' such
+    that (a * x) % m = 1. In other words, it calculates the integer that, when multiplied by 'a' and
+    then taken modulo 'm', results in 1.
+    """
+    for x in range(1, m):
+        if (a * x) % m == 1:
+            return x
+    return None
+
+
+def matrix_mod_inv(matrix, modulus):
+    """
+    This function calculates the modular inverse of a matrix with a given modulus.
+    It involves finding the determinant, applying the modulus to the determinant, and then
+    multiplying the determinant's modular inverse by the matrix's adjoint in mod 'modulus'.
+    """
+    det = int(np.round(np.linalg.det(matrix)))
+    if math.gcd(det, len(alphabet)) != 1:
+        raise Exception("Invalid key matrix")
+    det_inv = mod_inverse(int(det) % modulus, modulus)
+    matrix_modulus_inv = det_inv * np.round(det * np.linalg.inv(matrix)).astype(int) % modulus
+
+    return matrix_modulus_inv
+
+
+def encrypt(message, K):
+    """
+    Encrypts a message using a given encryption key matrix 'K'.
+    It converts the message to numbers, splits it into matrix-sized chunks,
+    and encrypts each chunk using matrix multiplication with 'K' and modulo.
+    """
+    encrypted = ""
+    message_in_numbers = []
+
+    # make message into numbers
+    for letter in message:
+        message_in_numbers.append(letter_to_index[letter])
+
+    # split into chunks of the size of matrix K
+    split_P = []
+    for i in range(0, len(message_in_numbers), int(K.shape[0])):
+        split_P.append(message_in_numbers[i: i + int(K.shape[0])])
+
+    # Iterate through each partial message and encrypt it using (K * P) (mod size)
+    for P in split_P:
+        # we need them as column vectors
+        P = np.transpose(np.asarray(P))[:, np.newaxis]
+
+        # in case we have only one element left in the last chunk we add a space, such that matrix multiplication
+        # can be performed
+        while P.shape[0] != K.shape[0]:
+            P = np.append(P, letter_to_index[" "])[:, np.newaxis]
+
+        # we do the (K * P) (mod size)
+        numbers = np.dot(K, P) % len(alphabet)
+        n = numbers.shape[0]  # length of encrypted message (in numbers)
+
+        # Map back to get encrypted text
+        for idx in range(n):
+            number = int(numbers[idx, 0])
+            encrypted += index_to_letter[number]
+
+    return encrypted
+
+
+def decrypt(cipher, K_inv):
+    """
+    Decrypts a ciphertext using a given 'K_inv' (the inverse of the decryption key matrix 'K').
+    It converts the ciphertext to numbers, splits it into matrix-sized chunks,
+    and decrypts each chunk using matrix multiplication with 'K_inv' and modulo.
+    """
+    decrypted = ""
+    cipher_in_numbers = []
+
+    # make cipher text into numbers
+    for letter in cipher:
+        cipher_in_numbers.append(letter_to_index[letter])
+
+    # split it into chunks of the size of matrix K_inv, such that we can do the matrix multiplication
+    split_C = []
+    for i in range(0, len(cipher_in_numbers), int(K_inv.shape[0])):
+        split_C.append(cipher_in_numbers[i: i + int(K_inv.shape[0])])
+
+    # iterate through each cipher text and decrypt it (using K_inv * C) (mod size)
+    for C in split_C:
+        C = np.transpose(np.asarray(C))[:, np.newaxis]
+        numbers = np.dot(K_inv, C) % len(alphabet)
+        n = numbers.shape[0]
+
+        # map back numbers to decrypted text
+        for idx in range(n):
+            number = int(numbers[idx, 0])
+            decrypted += index_to_letter[number]
+
+    return decrypted
+
+
+def main():
+    try:
+        K = np.matrix(np.array([
+            [11, 8],
+            [3, 7]
+        ]))
+        print("The encryption matrix is: ")
+        print(K)
+        K_inv = matrix_mod_inv(K, len(alphabet))
+        print("The modulo inverse of encryption matrix is: ")
+        print(K_inv)
+
+        message = input("message to be encrypted: ").upper()
+
+        encrypted_message = encrypt(message, K)
+        decrypted_message = decrypt(encrypted_message, K_inv)
+
+        print("Original message: " + message)
+        print("Encrypted message: " + encrypted_message)
+        print("Decrypted message: " + decrypted_message)
+    except Exception as e:
+        print(e)
+
+
+main()

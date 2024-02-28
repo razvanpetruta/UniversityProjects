@@ -1,0 +1,112 @@
+import time
+
+
+def euclidian_divisions_gcd(a, b):
+    """
+    Computing the greatest common divisor using the Euclidian algorithm by multiple divisions
+    The algorithm replaces the larger number with the remainder of the division and
+    keeps doing this until one of the numbers becomes 0.
+    """
+    if a == 0 and b == 0:
+        raise Exception("The numbers cannot be both 0")
+
+    if a == 0:
+        return b
+
+    if b == 0:
+        return a
+
+    while b:
+        a, b = b, a % b
+
+    return a
+
+
+def euclidian_subtractions_gcd(a, b):
+    """
+    Computing the greatest common divisor using the Euclidian algorithm
+    The algorithm replaces the larger number with the difference between the 2 until one of them becomes 0.
+    """
+    if a == 0 and b == 0:
+        raise Exception("The numbers cannot be both 0")
+
+    if a == 0:
+        return b
+
+    if b == 0:
+        return a
+
+    while a != b:
+        if a > b:
+            a = a - b
+        else:
+            b = b - a
+
+    return a
+
+
+def prime_factors_gcd(a, b):
+    """
+    The greatest common divisor is the product of common prime factors of this 2 numbers taken to the lowest power
+    """
+    if a == 0 and b == 0:
+        raise Exception("The numbers cannot be both 0")
+
+    if a == 0:
+        return b
+
+    if b == 0:
+        return a
+
+    d = 2
+    gcd = 1
+    while d <= a and d <= b:
+        while a % d == 0 and b % d == 0:
+            gcd *= d
+            a //= d
+            b //= d
+        d += 1
+
+    return gcd
+
+
+if __name__ == '__main__':
+    data_sets = [
+        (0, 0),
+        (36, 48),
+        (17, 231),
+        (105, 140),
+        (72, 96),
+        (11 ** 30, 11 ** 25),
+        (987654321, 123456789),
+        (999999, 111111),
+        (1234567890, 9876543210),
+        (2 ** 45, 3 ** 11 + 25),
+        (2 ** 35 + 3 ** 10 + 5 ** 11, 4832784)
+    ]
+
+    for a, b in data_sets:
+        print(f"({a}, {b}):")
+        try:
+            # euclidian divisions
+            start_time = time.time()
+            result = euclidian_divisions_gcd(a, b)
+            end_time = time.time()
+            print(f"Euclidean by divisions: GCD = {result}, Time={end_time - start_time:.6f} seconds")
+
+            # euclidian subtractions
+            start_time = time.time()
+            result = euclidian_subtractions_gcd(a, b)
+            end_time = time.time()
+            print(f"Euclidean by subtraction: GCD = {result}, Time={end_time - start_time:.6f} seconds")
+
+            # prime factors
+            start_time = time.time()
+            result = prime_factors_gcd(a, b)
+            end_time = time.time()
+            print(f"Euclidean by decomposing in prime factors: GCD = {result}, Time={end_time - start_time:.6f} seconds")
+
+            print("")
+        except Exception as e:
+            print(f"An exception occurred: {str(e)}")
+            print("")

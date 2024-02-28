@@ -1,0 +1,49 @@
+"""
+    Pollard’s ρ algorithm. The implicit function will be f(x) = x**2 + 1, but it will also allow the use
+    of a function f given by the user.
+"""
+
+import math
+
+
+def pollards_rho(n, f=lambda x: (x ** 2 + 1) % n):
+    # initializing the fields and the greatest common divisor
+    xi = 2
+    x2i = 2
+    d = 1
+    i = 0
+    max_iterations = 1000
+    current_iterations = 0
+
+    # Main loop of Pollard's ρ algorithm
+    # Floyd's method: Start with the pair (x1, x2) and successively computes (xi, x2i)
+    while d <= 1 or d >= n:
+        if current_iterations == max_iterations:
+            break
+
+        xi = f(xi)
+        x2i = f(f(x2i))
+        i += 2
+
+        # Calculate the gcd of the absolute difference between xi and x2i with n
+        d = math.gcd(abs(xi - x2i), n)
+        print(f"(|x{i} - x{i // 2}| = {abs(xi - x2i)}, n = {n}) = {d}")
+
+    # Check if a non-trivial factor was found
+    if 1 < d < n:
+        print(f"n = {d} * {n // d}")
+    else:
+        print("No solution")
+
+
+if __name__ == '__main__':
+    n = int(input("Enter the composite number (n): "))
+
+    # Get the function as a string from the user
+    user_function_str = input("Enter the function f(x) as a Python expression (e.g., x**2 + 1): ")
+
+    # Create a lambda function from the user input
+    user_function = lambda x: eval(user_function_str) % n
+
+    # Call the pollards_rho function with the user-defined function
+    pollards_rho(n, user_function)
