@@ -22,6 +22,16 @@ Some of my assignments and interesting projects that I developed during the year
     - [🗃️ Database Management Systems](https://github.com/razvanpetruta/UniversityProjects/tree/main/Year_2/Semester_4/Database_Management_Systems)
     - [🕷️ Web Programming](https://github.com/razvanpetruta/UniversityProjects/tree/main/Year_2/Semester_4/Web_Programming)
     - [🐌 Systems for Design and Implementation](https://github.com/razvanpetruta/UniversityProjects/tree/main/Year_2/Semester_4/Systems_For_Design_And_Implementation)
+- [👽 Semester 5 👽](https://github.com/razvanpetruta/UniversityProjects/tree/main/Year_3/Semester_5)
+    - [✏️ Formal Languages and Compiler Design ✏️](https://github.com/razvanpetruta/UniversityProjects/tree/main/Year_3/Semester_5/Formal_Languages_And_Compiler_Design)
+    - [📱 Mobile Applications 📱](https://github.com/razvanpetruta/UniversityProjects/tree/main/Year_3/Semester_5/Mobile_Applications)
+    - [💣 Parallel and Distributed Programming 💣](https://github.com/razvanpetruta/UniversityProjects/tree/main/Year_3/Semester_5/Parallel_And_Distributed_Programming)
+    - [🔐 Public Key Cryptography 🔐](https://github.com/razvanpetruta/UniversityProjects/tree/main/Year_3/Semester_5/Public_Key_Cryptography)
+    - [💻 Specialised Protocols in Computer Networks 💻](https://github.com/razvanpetruta/UniversityProjects/tree/main/Year_3/Semester_5/Specialised_Protocols_In_Computer_Networks)
+- [👑 Semester 6 👑](https://github.com/razvanpetruta/UniversityProjects/tree/main/Year_3/Semester_6)
+    - [🎲 Game Development 🎲](https://github.com/razvanpetruta/UniversityProjects/tree/main/Year_3/Semester_6/Game_Development)
+    - [🚦 Numerical Calculus 🚦](https://github.com/razvanpetruta/UniversityProjects/tree/main/Year_3/Semester_6/Numerical_Calculus)
+    - [☑️ Software Systems Verification and Validation ☑️](https://github.com/razvanpetruta/UniversityProjects/tree/main/Year_3/Semester_6/Software_Systems_Validation_And_Verification)
 
 <br>
 <img src="http://www.chem.ubbcluj.ro/romana/conferinte/MEEMB/archive/pictures/ubb.gif" />
