@@ -22,3 +22,12 @@ Some of my assignments and interesting projects that I developed during the year
     - [🗃️ Database Management Systems](https://github.com/razvanpetruta/UniversityProjects/tree/main/Year_2/Semester_4/Database_Management_Systems)
     - [🕷️ Web Programming](https://github.com/razvanpetruta/UniversityProjects/tree/main/Year_2/Semester_4/Web_Programming)
     - [🐌 Systems for Design and Implementation](https://github.com/razvanpetruta/UniversityProjects/tree/main/Year_2/Semester_4/Systems_For_Design_And_Implementation)
+
+<br>
+<img src="http://www.chem.ubbcluj.ro/romana/conferinte/MEEMB/archive/pictures/ubb.gif" />
+<a href="http://www.cs.ubbcluj.ro">
+<p> Babeş-Bolyai University of Cluj Napoca </p>
+<p> Faculty of Mathematics and Computer Science </p>
+<p> Bachelor’s in Computer Science </p>
+</a>
+<br>
